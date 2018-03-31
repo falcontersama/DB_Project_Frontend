@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import {form, FormGroup, FormControl, Button} from 'react-bootstrap'
 import styled from 'styled-components';
-
+import anime from 'animejs'
 
 const LoginBox = styled.div`
     position: absolute;
@@ -10,7 +10,6 @@ const LoginBox = styled.div`
     margin-right: -50%;
     transform: translate(-50%, -50%)
 `;
-
 
 export default class Login extends Component{
    
@@ -60,6 +59,8 @@ export default class Login extends Component{
                         </FormGroup>
                     </form>
                 </LoginBox>
+
+            
             </div>
         )
     }

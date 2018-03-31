@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
-import {form, FormGroup, FormControl, HelpBlock} from 'react-bootstrap'
+import {form, FormGroup, FormControl, Button} from 'react-bootstrap'
 import styled from 'styled-components';
 
+
 const LoginBox = styled.div`
-    margin: auto;
-    width: 50%;
-    border: 3px solid green;
-    padding: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
 `;
 
 
@@ -32,29 +34,33 @@ export default class Login extends Component{
    
     render(){
         return(
-            <LoginBox>
-                
-                <form>
-                    <FormGroup>
+            <div>
+                <LoginBox>
                     
-                    <div>Username</div>
-                    <FormControl
-                        type="text"
-                        value={this.state.username}
-                        onChange={this.handleUsername}
-                    />
-                    <div>Password</div>
-                    <FormControl
-                        type="text"
-                        value={this.state.password}
-                        onChange={this.handlePassword}
-                    />  
-                    
-                    <FormControl.Feedback />
-                    <HelpBlock>Validation is based on string length.</HelpBlock>
-                    </FormGroup>
-                </form>
-            </LoginBox>
+                    <form>
+                        <FormGroup>
+                        
+                        <div>Username</div>
+                        <FormControl
+                            type="text"
+                            value={this.state.username}
+                            onChange={this.handleUsername}
+                        />
+                        <br />
+                        <div>Password</div>
+                        <FormControl
+                            type="text"
+                            value={this.state.password}
+                            onChange={this.handlePassword}
+                        />  
+                        
+                        <FormControl.Feedback />
+                        <br />
+                        <Button>Submit</Button>
+                        </FormGroup>
+                    </form>
+                </LoginBox>
+            </div>
         )
     }
 

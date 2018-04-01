@@ -10,7 +10,7 @@ export default class Slidebar extends Component{
                     <Row className="clearfix">
                         <Col sm={2}>
                         <Nav bsStyle="pills" stacked>
-                            <NavItem eventKey="first">Tab 1</NavItem>
+                            <NavItem eventKey="first">Schedule</NavItem>
                             <NavItem eventKey="second">Tab 2</NavItem>
                         </Nav>
                         </Col>

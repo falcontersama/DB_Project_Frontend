@@ -1,40 +1,66 @@
 import React, { Component } from 'react'
 import {Table} from 'react-bootstrap'
+import styled from 'styled-components';
+
+const ScheduleBox = styled.div`
+    width:100wh;
+    max-height:50vh;
+    overflow-y:scroll;
+`;
 
 export default class Schedule extends Component{
     render(){
         return(
-            <div>
-                <Table striped bordered condensed hover>
+            <ScheduleBox>
+                <Table bordered condensed hover responsive>
                     <thead>
                         <tr>
-                        <th>#</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Username</th>
+                        <th>วัน/เวลา</th>
+                        <th>7-8</th>
+                        <th>8-9</th>
+                        <th>9-10</th>
+                        <th>10-11</th>
+                        <th>11-12</th>
+                        <th>12-13</th>
+                        <th>13-14</th>
+                        <th>14-15</th>
+                        <th>15-16</th>
+                        <th>16-17</th>
+                        <th>17-18</th>
+                        <th>18-19</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                        <td>1</td>
+                        <td>จันทร์</td>
                         <td>Mark</td>
                         <td>Otto</td>
                         <td>@mdo</td>
                         </tr>
                         <tr>
-                        <td>2</td>
+                        <td>อังคาร</td>
                         <td>Jacob</td>
                         <td>Thornton</td>
                         <td>@fat</td>
                         </tr>
                         <tr>
-                        <td>3</td>
-                        <td colSpan="2">Larry the Bird</td>
+                        <td>พุธ</td>
+                        <td>Larry the Bird</td>
+                        <td>@twitter</td>
+                        </tr>
+                        <tr>
+                        <td>พฤหัส</td>
+                        <td>Larry the Bird</td>
+                        <td>@twitter</td>
+                        </tr>
+                        <tr>
+                        <td>ศุกร์</td>
+                        <td>Larry the Bird</td>
                         <td>@twitter</td>
                         </tr>
                     </tbody>
-                </Table>;
-            </div>
+                </Table>
+            </ScheduleBox>
         )
     }
 }

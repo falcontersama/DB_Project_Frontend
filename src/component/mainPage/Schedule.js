@@ -9,6 +9,35 @@ const ScheduleBox = styled.div`
 `;
 
 export default class Schedule extends Component{
+
+    constructor(props){
+        super(props)
+        this.state = {
+            data: {
+                "Monday" : {
+                    "Calculus" : [0,1,1,0,0,0,0,0,0,0,0,0],
+                    "Physics" : [0,0,0,0,0,0,1,1,0,0,0,0]
+                },
+                "Tuesday" : {
+                    "Calculus" : [0,1,1,0,0,0,0,0,0,0,0,0],
+                    "Physics" : [0,0,0,0,0,0,1,1,0,0,0,0]
+                },
+                "Wednesday" : {
+                    "Calculus" : [0,1,1,0,0,0,0,0,0,0,0,0],
+                    "Physics" : [0,0,0,0,0,0,1,1,0,0,0,0]
+                },
+                "Thrusday" : {
+                    "Calculus" : [0,1,1,0,0,0,0,0,0,0,0,0],
+                    "Physics" : [0,0,0,0,0,0,1,1,0,0,0,0]
+                },
+                "Friday" : {
+                    "Calculus" : [0,1,1,0,0,0,0,0,0,0,0,0],
+                    "Physics" : [0,0,0,0,0,0,1,1,0,0,0,0]
+                }
+            }           
+        }
+    }
+
     render(){
         return(
             <ScheduleBox>
@@ -31,6 +60,7 @@ export default class Schedule extends Component{
                         </tr>
                     </thead>
                     <tbody>
+                        
                         <tr>
                         <td>จันทร์</td>
                         <td>Mark</td>

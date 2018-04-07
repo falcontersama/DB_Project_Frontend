@@ -25,18 +25,6 @@ function makeRow(row) {
     }
     return s;
 }
-// function makeRow(row) {
-//     // console.log(row);
-//     var s = "";
-//     var timePassed = 0;
-//     for(var i = 0; i < row.length; i++) {
-//         // console.log(row[i]);
-//         s += "<td/>".repeat(row[i].Start - timePassed);
-//         s += "<td colSpan=\"" + row[i].Duration.toString() + "\">" + row[i].Subject + "</td>";
-//         timePassed = row[i].Start + row[i].Duration;
-//     }
-//     return s;
-// }
 
 export default class Schedule extends Component{
 
@@ -75,7 +63,19 @@ export default class Schedule extends Component{
                     <thead>
                         <tr>
                         <th>วัน/เวลา</th>
-                        <th>7:00</th>
+                        <th colSpan='2'>7-8</th>
+                        <th colSpan='2'>8-9</th>
+                        <th colSpan='2'>9-10</th>
+                        <th colSpan='2'>10-11</th>
+                        <th colSpan='2'>11-12</th>
+                        <th colSpan='2'>12-13</th>
+                        <th colSpan='2'>13-14</th>
+                        <th colSpan='2'>14-15</th>
+                        <th colSpan='2'>15-16</th>
+                        <th colSpan='2'>16-17</th>
+                        <th colSpan='2'>17-18</th>
+                        <th colSpan='2'>18-19</th>
+                        {/* <th>7:00</th>
                         <th>7:30</th>
                         <th>8:00</th>
                         <th>8:30</th>
@@ -98,7 +98,7 @@ export default class Schedule extends Component{
                         <th>17:00</th>
                         <th>17:30</th>
                         <th>18:00</th>
-                        <th>18:30</th>
+                        <th>18:30</th> */}
                         </tr>
                     </thead>
                     <tbody>
@@ -123,53 +123,6 @@ export default class Schedule extends Component{
                         {makeRow(this.state.data["Friday"])}
                         </tr>
                     </tbody>
-                    {/* <thead>
-                        <tr>
-                        <th>วัน/เวลา</th>
-                        <th>7-8</th>
-                        <th>8-9</th>
-                        <th>9-10</th>
-                        <th>10-11</th>
-                        <th>11-12</th>
-                        <th>12-13</th>
-                        <th>13-14</th>
-                        <th>14-15</th>
-                        <th>15-16</th>
-                        <th>16-17</th>
-                        <th>17-18</th>
-                        <th>18-19</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        
-                        <tr>
-                        <td>จันทร์</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        </tr>
-                        <tr>
-                        <td>อังคาร</td>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                        </tr>
-                        <tr>
-                        <td>พุธ</td>
-                        <td>Larry the Bird</td>
-                        <td>@twitter</td>
-                        </tr>
-                        <tr>
-                        <td>พฤหัส</td>
-                        <td>Larry the Bird</td>
-                        <td>@twitter</td>
-                        </tr>
-                        <tr>
-                        <td>ศุกร์</td>
-                        <td>Larry the Bird</td>
-                        <td colSpan="2">@twitter</td>
-                        </tr>
-                    </tbody> */}
                 </Table>
             </ScheduleBox>
         )

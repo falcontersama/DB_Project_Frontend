@@ -1,13 +1,22 @@
 import React, { Component } from 'react'
-import {Tab,Col,Nav,NavItem,Row, NavDropdown, MenuItem} from 'react-bootstrap'
+import {Nav,Navbar} from 'react-bootstrap'
 import Startpage from './Startpage'
 import styled from 'styled-components'
 import Sidebar from 'react-sidebar'
 
-const SlideBox = styled.div`
+const ContentBox = styled.div`
     padding: 10px 35px;
-
 `;
+
+const SlideBox = styled.div`
+    width: 15vw;
+    height: 100vh;
+    background-color: white;
+    color: black;
+    padding: 16px;
+    display: block;
+`;
+
 
 const mql = window.matchMedia(`(min-width: 800px)`);
 
@@ -16,16 +25,21 @@ export default class Slidebar extends Component{
         super(props)
         this.state = {
             mql: mql,
-            docked: props.docked,
             open: props.open,
             tabs: 1,
+            sidebarOpen: false,
         }
         this.mediaQueryChanged = this.mediaQueryChanged.bind(this);
         this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this);
     }
 
-    onSetSidebarOpen(open2) {
-      this.setState({sidebarOpen: open2})
+    onSetSidebarOpen(open) {
+        if(this.state.sidebarOpen){
+            this.setState({sidebarOpen:false})
+        }else{
+            this.setState({sidebarOpen:true})
+        }
+      
     }
     
     componentWillMount() {
@@ -46,27 +60,53 @@ export default class Slidebar extends Component{
     render(){
         var sidebarContent = 
             <div>
+                 <Navbar style={{backgroundColor:"grey", width:"15vw"}}>
+                 <Navbar.Header>
+                    <Navbar.Brand>
+                        <div style={{color:"black"}}>Menu</div>
+                    </Navbar.Brand>
+                </Navbar.Header>
+                </Navbar>
+            <SlideBox>
                 <div>
-                    Tab1
-                </div>
+                    <h3>Main</h3>
+                </div>    
                 <div>
-                    Tab2
-                </div>
+                    <h3>Tab2</h3>
+                </div>        
+                <div>
+                    <h3>Tab3</h3>
+                </div>    
+                <div>
+                    <h3>Tab4</h3>
+                </div>  
+            </SlideBox>
             </div>;
+
         var sidebarProps = {
             sidebar: this.state.sidebarOpen,
-            docked: this.state.sidebarDocked,
             onSetOpen: this.onSetSidebarOpen
         };
+        
         return(
             <div>
+                
                 <Sidebar sidebar={sidebarContent}
                     open={this.state.sidebarOpen}
-                    docked={this.state.sidebarDocked}
                     onSetOpen={this.onSetSidebarOpen}>
-                    <b>Main content</b>
+                        
+                    <div>
+                    <Navbar style={{backgroundColor:"grey"}}>
+                        <Nav>
+                            <img src="/img/hamburgerButton.png" height="50" width="50" onClick={this.onSetSidebarOpen}/>
+                        </Nav>
+                    </Navbar>
+                    </div>
+                    <ContentBox>
+                        <Startpage />
+                    </ContentBox>
+                        
                 </Sidebar>
-
                 {/* <Tab.Container id="left-tabs-example" defaultActiveKey="first" >
                     
                     <Row className="clearfix">

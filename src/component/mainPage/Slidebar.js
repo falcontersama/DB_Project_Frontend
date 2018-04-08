@@ -63,24 +63,42 @@ export default class Slidebar extends Component{
                  <Navbar style={{backgroundColor:"grey", width:"15vw"}}>
                  <Navbar.Header>
                     <Navbar.Brand>
-                        <div style={{color:"black"}}>Menu</div>
+                        <div style={{color:"white"}}>Menu</div>
                     </Navbar.Brand>
                 </Navbar.Header>
                 </Navbar>
-            <SlideBox>
-                <div>
-                    <h3>Main</h3>
-                </div>    
-                <div>
-                    <h3>Tab2</h3>
-                </div>        
-                <div>
-                    <h3>Tab3</h3>
-                </div>    
-                <div>
-                    <h3>Tab4</h3>
-                </div>  
-            </SlideBox>
+                <SlideBox>
+                    <div>
+                        <h3>หน้าหลัก</h3>
+                    </div>    
+                    <div>
+                        <h3>แสดงความจำนงวิชาเรียน</h3>
+                    </div>        
+                    <div>
+                        <h3>เพิ่ม-ลดรายวิชา</h3>
+                    </div>
+                    <div>
+                        <h3>ตารางสอบ</h3>
+                    </div>    
+                    <div>
+                        <h3>ตรวจสอบผลการเรียน</h3>
+                    </div>
+                    <div>
+                        <h3>ขอจบการศึกษา</h3>
+                    </div> 
+                    <div>
+                        <h3>ขอใบรับรองต่าง ๆ</h3>
+                    </div> 
+                    <div>
+                        <h3>ข้อมูลทั่วไป</h3>
+                    </div>   
+                    <div>
+                        <h3>สอบถามปัญหาชีวิต</h3>
+                    </div>
+                    <div>
+                        <h3>ออกจาระบบ</h3>
+                    </div>  
+                </SlideBox>
             </div>;
 
         var sidebarProps = {
@@ -90,16 +108,17 @@ export default class Slidebar extends Component{
         
         return(
             <div>
-                
+            
                 <Sidebar sidebar={sidebarContent}
                     open={this.state.sidebarOpen}
                     onSetOpen={this.onSetSidebarOpen}>
                         
                     <div>
-                    <Navbar style={{backgroundColor:"grey"}}>
-                        <Nav>
+                    <Navbar style={{backgroundColor:"grey"}} fluid>
+                        <div>
                             <img src="/img/hamburgerButton.png" height="50" width="50" onClick={this.onSetSidebarOpen}/>
-                        </Nav>
+                            {this.props.usernameLog}
+                        </div>
                     </Navbar>
                     </div>
                     <ContentBox>
@@ -107,35 +126,7 @@ export default class Slidebar extends Component{
                     </ContentBox>
                         
                 </Sidebar>
-                {/* <Tab.Container id="left-tabs-example" defaultActiveKey="first" >
-                    
-                    <Row className="clearfix">
-                        <SlideBox>
-                        <div>
-                        Hamburger
-                        
-                            <Nav bsStyle="pills" stacked>
-                                <NavItem eventKey="first">Main</NavItem>
-                                <NavItem eventKey="second">Tab 1</NavItem>
-                                <NavItem eventKey="third">Tab 2</NavItem>
-                                <NavDropdown eventKey="3" title="Tab3" id="nav-dropdown-within-tab">
-                                    <MenuItem eventKey="3.1">Action</MenuItem>
-                                    <MenuItem eventKey="3.2">Another action</MenuItem>
-                                </NavDropdown>
-                            </Nav>
-                        
-                        </div>
-                        
-                        <Col>
-                        <Tab.Content animation>
-                            <Tab.Pane eventKey="first"><Startpage /></Tab.Pane>
-                            <Tab.Pane eventKey="second">Tab 2 content</Tab.Pane>
-                            <Tab.Pane eventKey="third">Tab 3 content</Tab.Pane>
-                        </Tab.Content>
-                        </Col>
-                        </SlideBox>
-                    </Row>
-                </Tab.Container>; */}
+            
             </div>
         )
     }

@@ -6,14 +6,15 @@ const McvBox = styled.div`
     width:100wh;
     max-height:50vh;
     overflow-y:scroll;
+    text-align: center
 `;
 
 export default class News extends Component{
     render(){
         return(
-            <div>
+            <McvBox>
                 news template
-            </div>
+            </McvBox>
         )
     }
 }

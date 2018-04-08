@@ -1,14 +1,22 @@
 import React, { Component } from 'react'
 import {form, FormGroup, FormControl, Button} from 'react-bootstrap'
 import styled from 'styled-components';
-//import anime from 'animejs'
+import Redirect from 'react-router-dom/Redirect';
 
 const LoginBox = styled.div`
     position: absolute;
     top: 50%;
     left: 50%;
     margin-right: -50%;
-    transform: translate(-50%, -50%)
+    transform: translate(-50%, -50%);
+`;
+
+const Content = styled.div`
+    width: 100vw;
+    height: 100vh;
+    background-image: url("img/loginBackground.png");
+    background-size: cover;
+    opacity: 0.7;
 `;
 
 export default class Login extends Component{
@@ -18,9 +26,11 @@ export default class Login extends Component{
         this.state = {
             username:"",
             password:"",
+            login:false,
         }
         this.handleUsername = this.handleUsername.bind(this)
         this.handlePassword = this.handlePassword.bind(this)
+        this.loginProcess = this.loginProcess.bind(this)
     }
 
     handleUsername(e){
@@ -30,22 +40,37 @@ export default class Login extends Component{
     handlePassword(e){
         this.setState({password:e.target.value})
     }
+
+    loginProcess(){
+        if(true){
+            this.props.handleLogin(this.state.username,this.state.password)
+            this.setState({login:true})
+        }
+    }
    
     render(){
+        if (this.state.login == true) {
+            return (
+                
+                <Redirect to='/Main' />)
+          }
         return(
             <div>
+                <Content />
+                    
                 <LoginBox>
+                    
                     <form>
                         <FormGroup>
                         
-                        <div>Username</div>
+                        <div><h3>Username</h3></div>
                         <FormControl
                             type="text"
                             value={this.state.username}
                             onChange={this.handleUsername}
                         />
                         <br />
-                        <div>Password</div>
+                        <div><h3>Password</h3></div>
                         <FormControl
                             type="text"
                             value={this.state.password}
@@ -54,7 +79,7 @@ export default class Login extends Component{
                         
                         <FormControl.Feedback />
                         <br />
-                        <Button>Submit</Button>
+                        <Button onClick={this.loginProcess}><h4>Submit</h4></Button>
                         </FormGroup>
                     </form>
                 </LoginBox>

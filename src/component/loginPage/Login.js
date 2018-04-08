@@ -56,13 +56,13 @@ export default class Login extends Component{
           }
         return(
             <div>
+                
                 <Content />
                     
                 <LoginBox>
                     
                     <form>
                         <FormGroup>
-                        
                         <div><h3>Username</h3></div>
                         <FormControl
                             type="text"

@@ -11,7 +11,7 @@ export default class Home extends Component{
                 <Login 
                     username={this.username}
                     password={this.password}
-                    handleLogin={this.handleLogin} 
+                    handleLogin={this.props.handleLogin} 
                     
                     />
                 

@@ -69,7 +69,7 @@ export default class Slidebar extends Component{
     render(){
         var sidebarContent = 
             <div>
-                 <Navbar style={{backgroundColor:"grey", width:"15vw"}}>
+                 <Navbar style={{backgroundColor:"black", width:"15vw", minWidth:"150px", marginBottom:"0px"}}>
                  <Navbar.Header>
                     <Navbar.Brand>
                         <div style={{color:"white"}}>Menu</div>

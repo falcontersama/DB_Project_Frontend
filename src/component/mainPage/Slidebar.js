@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
-import {Nav,Navbar} from 'react-bootstrap'
+import {Nav,Navbar,Col} from 'react-bootstrap'
 import Startpage from './Startpage'
 import styled from 'styled-components'
 import Sidebar from 'react-sidebar'
 
 const ContentBox = styled.div`
-    padding: 10px 35px;
+    padding: 10px 10px 0px 60px;
+
 `;
 
 const SlideBox = styled.div`
@@ -15,8 +16,16 @@ const SlideBox = styled.div`
     color: black;
     padding: 16px;
     display: block;
+    min-width: 150px;
 `;
 
+const HamburgerBox = styled.div`
+    height: 100vh;
+    background-color: black;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+`;
 
 const mql = window.matchMedia(`(min-width: 800px)`);
 
@@ -69,34 +78,34 @@ export default class Slidebar extends Component{
                 </Navbar>
                 <SlideBox>
                     <div>
-                        <h3>หน้าหลัก</h3>
+                        <h6>หน้าหลัก</h6>
                     </div>    
                     <div>
-                        <h3>แสดงความจำนงวิชาเรียน</h3>
+                        <h6>แสดงความจำนงวิชาเรียน</h6>
                     </div>        
                     <div>
-                        <h3>เพิ่ม-ลดรายวิชา</h3>
+                        <h6>เพิ่ม-ลดรายวิชา</h6>
                     </div>
                     <div>
-                        <h3>ตารางสอบ</h3>
+                        <h6>ตารางสอบ</h6>
                     </div>    
                     <div>
-                        <h3>ตรวจสอบผลการเรียน</h3>
+                        <h6>ตรวจสอบผลการเรียน</h6>
                     </div>
                     <div>
-                        <h3>ขอจบการศึกษา</h3>
+                        <h6>ขอจบการศึกษา</h6>
                     </div> 
                     <div>
-                        <h3>ขอใบรับรองต่าง ๆ</h3>
+                        <h6>ขอใบรับรองต่าง ๆ</h6>
                     </div> 
                     <div>
-                        <h3>ข้อมูลทั่วไป</h3>
+                        <h6>ข้อมูลทั่วไป</h6>
                     </div>   
                     <div>
-                        <h3>สอบถามปัญหาชีวิต</h3>
+                        <h6>สอบถามปัญหาชีวิต</h6>
                     </div>
                     <div>
-                        <h3>ออกจาระบบ</h3>
+                        <h6>ออกจาระบบ</h6>
                     </div>  
                 </SlideBox>
             </div>;
@@ -113,18 +122,19 @@ export default class Slidebar extends Component{
                     open={this.state.sidebarOpen}
                     onSetOpen={this.onSetSidebarOpen}>
                         
-                    <div>
-                    <Navbar style={{backgroundColor:"grey"}} fluid>
-                        <div>
-                            <img src="/img/hamburgerButton.png" height="50" width="50" onClick={this.onSetSidebarOpen}/>
-                            {this.props.usernameLog}
-                        </div>
-                    </Navbar>
-                    </div>
-                    <ContentBox>
-                        <Startpage />
-                    </ContentBox>
-                        
+                    <Col xs={1} style={{padding:"0px",width:"4vw",minWidth:"50px"}}>
+                    
+                        <HamburgerBox>
+                            <img src="/img/hamburgerButton.png" height="auto" width="50" onClick={this.onSetSidebarOpen}/>
+                            
+                        </HamburgerBox>
+                
+                    </Col>
+                    <Col xs={21}>
+                        <ContentBox>
+                            <Startpage />
+                        </ContentBox>
+                    </Col>     
                 </Sidebar>
             
             </div>

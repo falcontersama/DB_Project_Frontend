@@ -26,6 +26,7 @@ export default class Login extends Component{
         this.state = {
             username:"",
             password:"",
+            type:"",
             login:false,
         }
         this.handleUsername = this.handleUsername.bind(this)

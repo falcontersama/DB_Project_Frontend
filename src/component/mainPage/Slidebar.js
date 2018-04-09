@@ -27,6 +27,50 @@ const HamburgerBox = styled.div`
     margin-right: auto;
 `;
 
+const studentCommand = (
+        <div>  
+            <div>
+                <h6>หน้าหลัก</h6>
+            </div>    
+            <div>
+            <h6>ลงทะเบียนวิชา/เพิ่ม</h6>
+            </div>        
+            <div>
+            <h6>จัดการรายวิชา</h6>
+            </div>
+            <div>
+            <h6>ขอเอกสาร</h6>
+            </div>    
+            <div>
+            <h6>ออกจาระบบ</h6>
+            </div>
+        </div>
+    );
+
+const teacherCommand = (
+        <div>
+            <div>
+            <h6>หน้าหลัก</h6>
+            </div>    
+            <div>
+            <h6>จัดการการสอนรายวิชา</h6>
+            </div>        
+            <div>
+            <h6>บันทึกเกรด</h6>
+            </div>
+            <div>
+            <h6>ตรวจสอบนิสิตในความดูแล</h6>
+            </div>
+            <div>
+            <h6>เพิ่มงาน</h6>
+            </div>    
+            <div>
+            <h6>ออกจาระบบ</h6>
+            </div>
+        </div>
+    );
+
+
 const mql = window.matchMedia(`(min-width: 800px)`);
 
 export default class Slidebar extends Component{
@@ -77,36 +121,7 @@ export default class Slidebar extends Component{
                 </Navbar.Header>
                 </Navbar>
                 <SlideBox>
-                    <div>
-                        <h6>หน้าหลัก</h6>
-                    </div>    
-                    <div>
-                        <h6>แสดงความจำนงวิชาเรียน</h6>
-                    </div>        
-                    <div>
-                        <h6>เพิ่ม-ลดรายวิชา</h6>
-                    </div>
-                    <div>
-                        <h6>ตารางสอบ</h6>
-                    </div>    
-                    <div>
-                        <h6>ตรวจสอบผลการเรียน</h6>
-                    </div>
-                    <div>
-                        <h6>ขอจบการศึกษา</h6>
-                    </div> 
-                    <div>
-                        <h6>ขอใบรับรองต่าง ๆ</h6>
-                    </div> 
-                    <div>
-                        <h6>ข้อมูลทั่วไป</h6>
-                    </div>   
-                    <div>
-                        <h6>สอบถามปัญหาชีวิต</h6>
-                    </div>
-                    <div>
-                        <h6>ออกจาระบบ</h6>
-                    </div>  
+                      {studentCommand}
                 </SlideBox>
             </div>;
 

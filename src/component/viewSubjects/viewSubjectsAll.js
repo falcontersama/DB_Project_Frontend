@@ -5,6 +5,11 @@ import styled from 'styled-components'
 import {MOCK_SEMS, MOCK_SUBJECTS} from './mockData.json'
 
 const ViewSubjectBox = styled.div`
+    border:1px solid lightgrey;
+    padding:10px;
+`;
+
+const ViewSubjectTable = styled.div`
     width:100wh;
     max-height:100vh;
     overflow-y:scroll;
@@ -30,7 +35,9 @@ export default class ViewSubjectsAll extends Component{
 
     render(){
         return(
-                <div>
+            <div>
+                <h1>{'Place H. Older'} {this.props.usernameLog}</h1>
+                <ViewSubjectBox>
                     <DropdownButton title={this.state.CurrSem}>
                         {this.state.Semesters.map((obj, index) => (
                             <MenuItem
@@ -41,7 +48,7 @@ export default class ViewSubjectsAll extends Component{
                             </MenuItem>
                         ))}
                     </DropdownButton>
-                    <ViewSubjectBox>
+                    <ViewSubjectTable>
                         <Table bordered condensed hover responsive>
                             <thead>
                                 <tr>
@@ -72,8 +79,9 @@ export default class ViewSubjectsAll extends Component{
                                 ))}
                             </tbody>
                         </Table>
-                    </ViewSubjectBox>
-                </div>
+                    </ViewSubjectTable>
+                </ViewSubjectBox>
+            </div>
         )
     }
 }

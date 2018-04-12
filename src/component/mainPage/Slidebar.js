@@ -6,6 +6,8 @@ import Sidebar from 'react-sidebar'
 //Page
 import Startpage from './Startpage'
 import RegisterStudentAll from '../registerStudent/RegisterStudentAll'
+import ViewSubjectsAll from '../viewSubjects/ViewSubjectsAll'
+import RequestDocsAll from '../requestDocs/RequestDocsAll'
 
 const ContentBox = styled.div`
     padding: 10px 10px 0px 60px;
@@ -151,6 +153,7 @@ export default class Slidebar extends Component{
                     <Col xs={21}>
                         <ContentBox>
                             <RegisterStudentAll />
+                            {/* <ViewSubjectsAll usernameLog={this.props.usernameLog} nameLog={this.props.nameLog}/> */}
                         </ContentBox>
                     </Col>     
                 </Sidebar>

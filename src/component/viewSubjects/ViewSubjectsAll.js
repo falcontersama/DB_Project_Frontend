@@ -20,16 +20,21 @@ function onWithdrawButton(subject){
 
 }
 
+function getSemester(subject){
+    return subject.year + '/' + subject.semester;
+}
+
 export default class ViewSubjectsAll extends Component{
     constructor(props){
         super(props)
         var subjects = MOCK_SUBJECTS
-        var sems = [... new Set(subjects.map((obj, idx) => (obj.Semester)))].sort((a, b) => (a == b ? 0 : a < b ? 1 : -1))
-        var currSem = sems[0]
+        var sems = [... new Set(subjects.map((obj, idx) => getSemester(obj)))].sort((a, b) => (a == b ? 0 : a < b ? 1 : -1))
+        var latestSem = sems[0]
         this.state = {
-            "Semesters" : sems,
-            "Subjects" : subjects,
-            "CurrSem" : currSem
+            "semesters" : sems,
+            "subjects" : subjects,
+            "currSem" : latestSem,
+            "latestSem" : latestSem
         }
     }
 
@@ -38,11 +43,11 @@ export default class ViewSubjectsAll extends Component{
             <div>
                 <h1>{this.props.nameLog} {this.props.usernameLog}</h1>
                 <ViewSubjectBox>
-                    <DropdownButton title={this.state.CurrSem}>
-                        {this.state.Semesters.map((obj, index) => (
+                    <DropdownButton title={this.state.currSem}>
+                        {this.state.semesters.map((obj, index) => (
                             <MenuItem
                                 eventKey={index}
-                                onClick={() => {this.setState({"CurrSem" : obj})}}
+                                onClick={() => {this.setState({"currSem" : obj})}}
                             >
                                 {obj}
                             </MenuItem>
@@ -62,18 +67,25 @@ export default class ViewSubjectsAll extends Component{
                                 </tr>
                             </thead>
                             <tbody>
-                                {this.state.Subjects
-                                .filter((item) => (item.Semester == this.state.CurrSem))
+                                {this.state.subjects
+                                .filter((item) => (getSemester(item) == this.state.currSem))
                                 .map((obj, index) => (
                                     <tr>
-                                        <td>{obj.SubjectID} {obj.SubjectName}</td>
-                                        <td>{obj.Section}</td>
-                                        <td>{obj.Time}</td>
-                                        <td>{obj.Location}</td>
-                                        <td>{obj.Instructor}</td>
-                                        <td>{obj.Grade}</td>
+                                        <td>{obj.subjectID} {obj.subjectName}</td>
+                                        <td>{obj.section}</td>
+                                        <td>{obj.classes.map((x, idx) => <span key={idx}>{x.day} {x.time}<br/></span>)}</td>
+                                        <td>{obj.classes.map((x, idx) => <span key={idx}>{x.roomID} {x.buildingID}<br/></span>)}</td>
+                                        <td>{obj.teacher}</td>
+                                        <td>{obj.grade}</td>
                                         <td>
-                                            <Button bsStyle='danger' bsSize='xsmall' onClick={onWithdrawButton}>{withdrawButtonText}</Button>
+                                            <Button
+                                                bsStyle='danger'
+                                                bsSize='xsmall'
+                                                onClick={onWithdrawButton}
+                                                disabled={this.state.currSem != this.state.latestSem}
+                                            >
+                                                {withdrawButtonText}
+                                            </Button>
                                         </td>
                                     </tr>
                                 ))}

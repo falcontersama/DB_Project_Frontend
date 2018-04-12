@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Table, Button } from 'react-bootstrap'
 
-import {MOCK_SEMS, MOCK_SUBJECTS} from './mockData.json'
+import {MOCK_SEMS, MOCK_SUBJECTS} from './MockData.json'
 
 export default class RequestDocsAll extends Component{
     constructor(props){
@@ -14,7 +14,7 @@ export default class RequestDocsAll extends Component{
     render(){
         return(
                 <div>
-									
+					
                 </div>
         )
     }

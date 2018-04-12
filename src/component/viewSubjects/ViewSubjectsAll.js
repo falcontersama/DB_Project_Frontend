@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Table, Button, MenuItem, DropdownButton } from 'react-bootstrap'
 import styled from 'styled-components'
 
-import {MOCK_SEMS, MOCK_SUBJECTS} from './mockData.json'
+import {MOCK_SEMS, MOCK_SUBJECTS} from './MockData.json'
 
 const ViewSubjectBox = styled.div`
     border:1px solid lightgrey;

@@ -42,7 +42,7 @@ const studentCommand = (
             <h6>ขอเอกสาร</h6>
             </div>    
             <div>
-            <h6>ออกจาระบบ</h6>
+            <h6>ออกจากระบบ</h6>
             </div>
         </div>
     );
@@ -65,7 +65,7 @@ const teacherCommand = (
             <h6>เพิ่มงาน</h6>
             </div>    
             <div>
-            <h6>ออกจาระบบ</h6>
+            <h6>ออกจากระบบ</h6>
             </div>
         </div>
     );

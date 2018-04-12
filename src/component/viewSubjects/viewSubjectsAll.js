@@ -36,7 +36,7 @@ export default class ViewSubjectsAll extends Component{
     render(){
         return(
             <div>
-                <h1>{'Place H. Older'} {this.props.usernameLog}</h1>
+                <h1>{this.props.nameLog} {this.props.usernameLog}</h1>
                 <ViewSubjectBox>
                     <DropdownButton title={this.state.CurrSem}>
                         {this.state.Semesters.map((obj, index) => (

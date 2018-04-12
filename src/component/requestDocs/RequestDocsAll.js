@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Table, Button } from 'react-bootstrap'
 
-import {MOCK_SEMS, MOCK_SUBJECTS} from './MockData.json'
+// import {MOCK_SEMS, MOCK_SUBJECTS} from './MockData.json'
 
 export default class RequestDocsAll extends Component{
     constructor(props){

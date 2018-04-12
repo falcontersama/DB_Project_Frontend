@@ -27,7 +27,7 @@ class App extends Component {
         <div>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"></link>
           <Route exact path="/" render={()=><Home handleLogin={this.handleLogin}/>} />
-          <Route exact path="/Main" render={()=><Main usernameLog={this.state.usernameLog}/>} nameLog={this.state.nameLog}/>
+          <Route exact path="/Main" render={()=><Main usernameLog={this.state.usernameLog} nameLog={this.state.nameLog}/>}/>
         </div>
       </Router>
     );
@@ -35,5 +35,3 @@ class App extends Component {
 }
 
 export default App;
-
-// Ahm checking in

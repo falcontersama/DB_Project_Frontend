@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Table, Button, MenuItem, DropdownButton } from 'react-bootstrap'
 import styled from 'styled-components'
 
-import {MOCK_SEMS, MOCK_SUBJECTS} from './MockData.json'
+import {MOCK_SUBJECTS} from './MockData.json'
 
 const ViewSubjectBox = styled.div`
     border:1px solid lightgrey;
@@ -23,8 +23,8 @@ function onWithdrawButton(subject){
 export default class ViewSubjectsAll extends Component{
     constructor(props){
         super(props)
-        var sems = MOCK_SEMS
         var subjects = MOCK_SUBJECTS
+        var sems = [... new Set(subjects.map((obj, idx) => (obj.Semester)))].sort((a, b) => (a == b ? 0 : a < b ? 1 : -1))
         var currSem = sems[0]
         this.state = {
             "Semesters" : sems,

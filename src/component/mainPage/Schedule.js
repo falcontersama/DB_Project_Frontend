@@ -75,30 +75,6 @@ export default class Schedule extends Component{
                         <th colSpan='2'>16-17</th>
                         <th colSpan='2'>17-18</th>
                         <th colSpan='2'>18-19</th>
-                        {/* <th>7:00</th>
-                        <th>7:30</th>
-                        <th>8:00</th>
-                        <th>8:30</th>
-                        <th>9:00</th>
-                        <th>9:30</th>
-                        <th>10:00</th>
-                        <th>10:30</th>
-                        <th>11:00</th>
-                        <th>11:30</th>
-                        <th>12:00</th>
-                        <th>12:30</th>
-                        <th>13:00</th>
-                        <th>13:30</th>
-                        <th>14:00</th>
-                        <th>14:30</th>
-                        <th>15:00</th>
-                        <th>15:30</th>
-                        <th>16:00</th>
-                        <th>16:30</th>
-                        <th>17:00</th>
-                        <th>17:30</th>
-                        <th>18:00</th>
-                        <th>18:30</th> */}
                         </tr>
                     </thead>
                     <tbody>

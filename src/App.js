@@ -9,8 +9,10 @@ class App extends Component {
   constructor(props){
     super(props)
       this.state = {
-          usernameLog:"aaaaaaa",
+          usernameLog:"5831006021",
           passwordLog:"",
+          nameLog:"Jakkaraj"
+          
       }
       this.handleLogin = this.handleLogin.bind(this)
   }
@@ -25,7 +27,7 @@ class App extends Component {
         <div>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"></link>
           <Route exact path="/" render={()=><Home handleLogin={this.handleLogin}/>} />
-          <Route exact path="/Main" render={()=><Main usernameLog={this.state.usernameLog}/>}/>
+          <Route exact path="/Main" render={()=><Main usernameLog={this.state.usernameLog}/>} nameLog={this.state.nameLog}/>
         </div>
       </Router>
     );

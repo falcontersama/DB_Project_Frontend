@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
-import {Nav,Navbar,Col} from 'react-bootstrap'
-import Startpage from './Startpage'
+import {Navbar,Col} from 'react-bootstrap'
 import styled from 'styled-components'
 import Sidebar from 'react-sidebar'
+
+//Page
+import Startpage from './Startpage'
+import RegisterStudentAll from '../registerStudent/RegisterStudentAll'
 
 const ContentBox = styled.div`
     padding: 10px 10px 0px 60px;
@@ -30,7 +33,7 @@ const HamburgerBox = styled.div`
 const studentCommand = (
         <div>  
             <div>
-                <h6>หน้าหลัก</h6>
+            <h6>หน้าหลัก</h6>
             </div>    
             <div>
             <h6>ลงทะเบียนวิชา/เพิ่ม</h6>
@@ -147,7 +150,7 @@ export default class Slidebar extends Component{
                     </Col>
                     <Col xs={21}>
                         <ContentBox>
-                            <Startpage />
+                            <RegisterStudentAll />
                         </ContentBox>
                     </Col>     
                 </Sidebar>

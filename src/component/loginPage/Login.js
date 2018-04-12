@@ -80,7 +80,7 @@ export default class Login extends Component{
                         
                         <FormControl.Feedback />
                         <br />
-                        <Button onClick={this.loginProcess}><h4>Submit</h4></Button>
+                        <Button onClick={this.loginProcess}><h4>Login</h4></Button>
                         </FormGroup>
                     </form>
                 </LoginBox>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Table, Button, Dropdown, MenuItem, DropdownButton } from 'react-bootstrap'
+import { Table, Button, MenuItem, DropdownButton } from 'react-bootstrap'
 import styled from 'styled-components'
 
 import {MOCK_SEMS, MOCK_SUBJECTS} from './mockData.json'

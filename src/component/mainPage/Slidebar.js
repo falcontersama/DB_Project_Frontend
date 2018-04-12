@@ -33,7 +33,7 @@ const HamburgerBox = styled.div`
 const studentCommand = (
         <div>  
             <div>
-                <h6>หน้าหลัก</h6>
+            <h6>หน้าหลัก</h6>
             </div>    
             <div>
             <h6>ลงทะเบียนวิชา/เพิ่ม</h6>

@@ -10,6 +10,7 @@ export default class RegisterStudentAll extends Component {
             id:"",
             name:"",
             gened:"",
+            selectedSubject:"",
             subject:[
                 {
                     "id" : "2110212",
@@ -46,6 +47,7 @@ export default class RegisterStudentAll extends Component {
             ],
         }
         this.searchSubject = this.searchSubject.bind(this)
+        this.selectSubject = this.selectSubject.bind(this)
     }
 
     searchSubject(idx,namex,genedx){
@@ -54,11 +56,16 @@ export default class RegisterStudentAll extends Component {
         
     }
 
+    selectSubject(subj){
+        this.setState({selectedSubject:subj})
+    }
+
     render(){
         return(
             <div>
                 <Topleft searchSubject={this.searchSubject} />
-                <BottomLeft subject={this.state.subject} />
+                <BottomLeft subject={this.state.subject} selectSubject={this.selectSubject}/>
+                
             </div>
         )
     }

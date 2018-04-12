@@ -13,15 +13,14 @@ export default class BottomLeft extends Component {
 
     constructor(props){
         super(props)
-        this.showMessage = this.showMessage.bind(this)
+        this.selectSubject = this.selectSubject.bind(this)
     }
 
-    showMessage(e){
-        console.log(e)
+    selectSubject(item,i){
+        this.props.selectSubject(item.id)
     }
 
     render(){
-        console.log(this.props.subject)
         return(
             <BottomLeftBox>
                 <div>รายชื่อวิชา</div>
@@ -33,11 +32,11 @@ export default class BottomLeft extends Component {
                         </thead>
                         <tbody>
                             {this.props.subject.map((item,i)=>
-                                <tr onClick={this.showMessage}>
-                                <Link>
+                                <tr onClick={() => this.selectSubject(item)}>
+                                
                                     <td>{item.id}</td>
                                     <td>{item.name}</td>
-                                </Link>
+                                
                                     
                                 </tr>
                             )}

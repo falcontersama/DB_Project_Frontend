@@ -1,3 +1,29 @@
-{"MOCK_DOCS" : [
-	
-]}
+{
+	"MOCK_DOCS": [
+		{
+			"code": "CR25",
+			"nameTH": "ใบประมวลผลการศึกษา (ระหว่างศึกษา)",
+			"nameEN": "Transcript (Current student)"
+		},
+		{
+			"code": "จท23",
+			"nameTH": "หนังสือรับรองความเป็นนิสิตฉบับภาษาไทย",
+			"nameEN": "Certificate of student status (Thai version)"
+		},
+		{
+			"code": "CR23",
+			"nameTH": "หนังสือรับรองความเป็นนิสิตฉบับภาษาอังกฤษ",
+			"nameEN": "Certificate of student status (English version)"
+		},
+		{
+			"code": "จท24",
+			"nameTH": "หนังสือรับรองความประพฤติฉบับภาษาไทย (ปริญญาตรี)",
+			"nameEN": "Certificate of conduct (Thai version) (Bachelor's degree)"
+		},
+		{
+			"code": "CR24",
+			"nameTH": "หนังสือรับรองความประพฤติฉบับภาษาอังกฤษ (ปริญญาตรี)",
+			"nameEN": "Certificate of conduct (English version) (Bachelor's degree)"
+		}
+	]
+}

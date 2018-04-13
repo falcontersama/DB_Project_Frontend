@@ -154,6 +154,7 @@ export default class Slidebar extends Component{
                         <ContentBox>
                             <RegisterStudentAll />
                             {/* <ViewSubjectsAll usernameLog={this.props.usernameLog} nameLog={this.props.nameLog}/> */}
+                            {/* <RequestDocsAll usernameLog={this.props.usernameLog} nameLog={this.props.nameLog}/> */}
                         </ContentBox>
                     </Col>     
                 </Sidebar>

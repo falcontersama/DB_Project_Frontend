@@ -5,8 +5,11 @@ import styled from 'styled-components'
 const BottomLeftBox = styled.div`
     width: 35vw;
     height: 60vh;
+    max-height: 60vh;
     padding: 10px 10px 10px 10px;
     text-align: center;
+    overflow-y:scroll;
+    
 `;
 
 export default class BottomLeft extends Component {
@@ -27,15 +30,15 @@ export default class BottomLeft extends Component {
                 <div>
                     <Table responsive hover>
                         <thead>
-                            <th><h6>รหัสวิชา</h6></th>
-                            <th><h6>ชื่อวิชา</h6></th>
+                            <th style={{textAlign:"center"}}><h6>รหัสวิชา</h6></th>
+                            <th style={{textAlign:"center"}}><h6>ชื่อวิชา</h6></th>
                         </thead>
                         <tbody>
                             {this.props.subject.map((item,i)=>
                                 <tr onClick={() => this.selectSubject(item)}>
                                 
-                                    <td>{item.id}</td>
-                                    <td>{item.name}</td>
+                                    <td>{item.subjectId}</td>
+                                    <td>{item.subjectName}</td>
                                 
                                     
                                 </tr>

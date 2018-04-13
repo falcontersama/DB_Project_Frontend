@@ -28,7 +28,7 @@ export default class RequestDocsAll extends Component {
                 <Table bordered condensed hover responsive>
                     <thead>
                         <tr>
-                            <th colspan='2'>รายการเอกสาร</th>
+                            <th colspan='2'><h4>รายการเอกสาร</h4></th>
                             <th></th>
                             <th></th>
                         </tr>

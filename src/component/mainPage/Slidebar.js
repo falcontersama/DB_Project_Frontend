@@ -8,6 +8,7 @@ import Startpage from './Startpage'
 import RegisterStudentAll from '../registerStudent/RegisterStudentAll'
 import ViewSubjectsAll from '../viewSubjects/ViewSubjectsAll'
 import RequestDocsAll from '../requestDocs/RequestDocsAll'
+import Schedule from './Schedule'
 
 const ContentBox = styled.div`
     padding: 10px 10px 0px 60px;
@@ -176,6 +177,7 @@ export default class Slidebar extends Component{
                                     }
                                 }
                             } */}
+                            {/* <Schedule/> */}
                             <RegisterStudentAll />
                             {/* <ViewSubjectsAll usernameLog={this.props.usernameLog} nameLog={this.props.nameLog}/> */}
                             {/* <RequestDocsAll usernameLog={this.props.usernameLog} nameLog={this.props.nameLog}/> */}

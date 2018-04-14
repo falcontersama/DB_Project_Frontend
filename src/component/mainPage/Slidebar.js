@@ -52,6 +52,14 @@ const studentCommand = (
         </div>
     );
 
+// const studentCommand = [
+//     {subpage: "home", text: "หน้าหลัก"},
+//     {subpage: "register", text: "ลงทะเบียนวิชา/เพิ่ม"},
+//     {subpage: "viewSubjects", text: "จัดการรายวิชา"},
+//     {subpage: "requestDocs", text: "ขอเอกสาร"},
+//     {subpage: "logout", text: "ออกจากระบบ"}
+// ];
+
 const teacherCommand = (
         <div>
             <div>
@@ -86,6 +94,8 @@ export default class Slidebar extends Component{
             open: props.open,
             tabs: 1,
             sidebarOpen: false,
+            // userType: "student",
+            // subpage: "home"
         }
         this.mediaQueryChanged = this.mediaQueryChanged.bind(this);
         this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this);
@@ -127,6 +137,9 @@ export default class Slidebar extends Component{
                 </Navbar>
                 <SlideBox>
                       {studentCommand}
+                      {/* {studentCommand.map((item, i) => (
+                          <div><h6 onClick={this.setState({subpage: item.subpage})}>{item.text}</h6></div>
+                      ))} */}
                 </SlideBox>
             </div>;
 
@@ -152,6 +165,17 @@ export default class Slidebar extends Component{
                     </Col>
                     <Col xs={21}>
                         <ContentBox>
+                            {/* {() => {
+                                switch(this.state.userType) {
+                                    case "student":
+                                        switch(this.state.subpage) {
+                                            case "home": return <RegisterStudentAll/>
+                                            case "viewSubjects": return <ViewSubjectsAll usernameLog={this.props.usernameLog} nameLog={this.props.nameLog}/>
+                                            case "requestDocs": return <RequestDocsAll usernameLog={this.props.usernameLog} nameLog={this.props.nameLog}/>
+                                        }
+                                    }
+                                }
+                            } */}
                             <RegisterStudentAll />
                             {/* <ViewSubjectsAll usernameLog={this.props.usernameLog} nameLog={this.props.nameLog}/> */}
                             {/* <RequestDocsAll usernameLog={this.props.usernameLog} nameLog={this.props.nameLog}/> */}

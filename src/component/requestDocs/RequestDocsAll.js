@@ -13,12 +13,14 @@ export default class RequestDocsAll extends Component {
         this.onRequestButton = this.onRequestButton.bind(this)
     }
 
-    onPreviewButton(subject) {
-        
+    onPreviewButton(doc) {
+        console.log("Preview " + doc.code)
+        window.alert("TODO: Show Preview for " + doc.code)
     }
 
-    onRequestButton(subject) {
-        
+    onRequestButton(doc) {
+        console.log("Request " + doc.code)
+        window.alert("TODO: Request " + doc.code + " for " + this.props.usernameLog)
     }
 
     render() {
@@ -36,8 +38,8 @@ export default class RequestDocsAll extends Component {
                     <tbody>
                         {this.state.docs.map((obj, idx) => <tr>
                             <td>{obj.code}</td><td>{obj.nameTH}<br/>{obj.nameEN}</td>
-                            <td><Button bsStyle='default' onclick={this.onPreviewButton}>ดูตัวอย่าง</Button></td>
-                            <td><Button bsStyle='primary' onclick={this.onRequestButton}>ขอเอกสาร</Button></td>
+                            <td><Button bsStyle='default' onClick={() => this.onPreviewButton(obj)}>ดูตัวอย่าง</Button></td>
+                            <td><Button bsStyle='primary' onClick={() => this.onRequestButton(obj)}>ขอเอกสาร</Button></td>
                         </tr>)}
                     </tbody>
                 </Table>

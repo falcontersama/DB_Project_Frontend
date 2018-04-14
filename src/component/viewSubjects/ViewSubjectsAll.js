@@ -38,7 +38,10 @@ export default class ViewSubjectsAll extends Component {
     }
 
     onWithdrawButton(subject) {  
-
+        if(window.confirm("ถอนรายวิชา " + subject.subjectID + " " + subject.subjectName + "?"))
+        {
+            window.alert("TODO: Withdraw Subject")
+        }
     }
 
     render() {
@@ -84,7 +87,7 @@ export default class ViewSubjectsAll extends Component {
                                                 <Button
                                                     bsStyle='danger'
                                                     bsSize='xsmall'
-                                                    onClick={this.onWithdrawButton}
+                                                    onClick={() => this.onWithdrawButton(obj)}
                                                     disabled={this.state.currSem != this.state.latestSem}
                                                 >
                                                     {withdrawButtonText}

@@ -25,7 +25,7 @@ class App extends Component {
     return (
       <Router>
         <div>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"></link>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossOrigin="anonymous"></link>
           <Route exact path="/" render={()=><Home handleLogin={this.handleLogin}/>} />
           <Route exact path="/Main" render={()=><Main usernameLog={this.state.usernameLog} nameLog={this.state.nameLog}/>}/>
         </div>

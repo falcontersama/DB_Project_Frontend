@@ -30,8 +30,10 @@ export default class BottomLeft extends Component {
                 <div>
                     <Table responsive hover>
                         <thead>
-                            <th style={{textAlign:"center"}}><h6>รหัสวิชา</h6></th>
-                            <th style={{textAlign:"center"}}><h6>ชื่อวิชา</h6></th>
+                            <tr>
+                                <th style={{textAlign:"center"}}><h6>รหัสวิชา</h6></th>
+                                <th style={{textAlign:"center"}}><h6>ชื่อวิชา</h6></th>
+                            </tr>
                         </thead>
                         <tbody>
                             {this.props.subject.map((item,i)=>

@@ -20,10 +20,12 @@ export default class Right extends Component{
                 รายละเอียดวิชา
                 <Table>
                 <thead>
-                    <th style={{textAlign:"center"}}><h6>section</h6></th>
-                    <th style={{textAlign:"center"}}><h6>วัน-เวลาเรียน</h6></th>
-                    <th style={{textAlign:"center"}}><h6>ครูผู้สอน</h6></th>
-                    <th style={{textAlign:"center"}}><h6>ทีจำนวน่นั่ง</h6></th>
+                    <tr>
+                        <th style={{textAlign:"center"}}><h6>section</h6></th>
+                        <th style={{textAlign:"center"}}><h6>วัน-เวลาเรียน</h6></th>
+                        <th style={{textAlign:"center"}}><h6>ครูผู้สอน</h6></th>
+                        <th style={{textAlign:"center"}}><h6>ทีจำนวน่นั่ง</h6></th>
+                    </tr>
                 </thead>
                 <tbody>
                     {this.props.selectedSubject.detail.map((item,i)=>

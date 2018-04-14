@@ -7,7 +7,7 @@ export default class RequestDocsAll extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            "docs": MOCK_DOCS
+            docs: MOCK_DOCS
         }
         this.onPreviewButton = this.onPreviewButton.bind(this)
         this.onRequestButton = this.onRequestButton.bind(this)

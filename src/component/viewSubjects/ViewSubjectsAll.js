@@ -28,10 +28,10 @@ export default class ViewSubjectsAll extends Component {
         var sems = [... new Set(subjects.map((obj, idx) => getSemester(obj)))].sort((a, b) => (a == b ? 0 : a < b ? 1 : -1))
         var latestSem = sems[0]
         this.state = {
-            "semesters": sems,
-            "subjects": subjects,
-            "currSem": latestSem,
-            "latestSem": latestSem
+            semesters: sems,
+            subjects: subjects,
+            currSem: latestSem,
+            latestSem: latestSem
         }
 
         this.onWithdrawButton = this.onWithdrawButton.bind(this)
@@ -53,7 +53,7 @@ export default class ViewSubjectsAll extends Component {
                         {this.state.semesters.map((obj, index) => (
                             <MenuItem
                                 eventKey={index}
-                                onClick={() => { this.setState({ "currSem": obj }) }}
+                                onClick={() => { this.setState({ currSem: obj }) }}
                             >
                                 {obj}
                             </MenuItem>

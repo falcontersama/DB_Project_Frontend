@@ -27,15 +27,15 @@ export default class Registration extends Component{
     }
 
     handleId(e){
-        this.setState({id:e.target.value})
+        this.props.handleId(e)
     }
 
     handleName(e){
-        this.setState({name:e.target.value})
+        this.props.handleName(e)
     }
 
     handleGened(e){
-        this.setState({gened:e.target.checked}) //true is uncheck, false is check
+        this.props.handleGened(e) //true is uncheck, false is check
         console.log(this.state.gened)
     }
     

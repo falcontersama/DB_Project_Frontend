@@ -16,11 +16,6 @@ export default class BottomLeft extends Component {
 
     constructor(props){
         super(props)
-        this.selectSubject = this.selectSubject.bind(this)
-    }
-
-    selectSubject(item,i){
-        this.props.selectSubject(item.id)
     }
 
     render(){
@@ -37,9 +32,9 @@ export default class BottomLeft extends Component {
                         </thead>
                         <tbody>
                             {this.props.subject.map((item,i)=>
-                                <tr onClick={() => this.selectSubject(item)}>
-                                
-                                    <td>{item.subjectId}</td>
+                                <tr key={i} onClick={() => this.props.selectSubject(item.subjectID)}>
+
+                                    <td>{item.subjectID}</td>
                                     <td>{item.subjectName}</td>
                                 
                                     

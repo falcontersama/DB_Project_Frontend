@@ -14,7 +14,8 @@ const RightBox = styled.div`
 
 export default class Right extends Component{
     render(){
-        console.log(this.props)
+        console.log(this.props.selectedSubject[0].detail)
+        let subject = this.props.selectedSubject[0].detail
         return(
             <RightBox>
                 รายละเอียดวิชา
@@ -28,7 +29,9 @@ export default class Right extends Component{
                     </tr>
                 </thead>
                 <tbody>
-                    {this.props.selectedSubject.detail.map((item,i)=>
+                    
+                    {  
+                        subject.map((item,i)=>
                         <tr>
                         
                             <td>{item.sec}</td>

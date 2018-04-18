@@ -164,21 +164,6 @@ export default class Slidebar extends Component{
                              this.state.pageState == 2 ? <RegisterStudentAll/>:
                              this.state.pageState == 3 ? <ViewSubjectsAll />:
                              this.state.pageState == 4 ? <RequestDocsAll />: <div/>}
-                            {/* {() => {
-                                switch(this.state.userType) {
-                                    case "student":
-                                        switch(this.state.subpage) {
-                                            case "home": return <RegisterStudentAll/>
-                                            case "viewSubjects": return <ViewSubjectsAll usernameLog={this.props.usernameLog} nameLog={this.props.nameLog}/>
-                                            case "requestDocs": return <RequestDocsAll usernameLog={this.props.usernameLog} nameLog={this.props.nameLog}/>
-                                        }
-                                    }
-                                }
-                            } */}
-                            {/* <Schedule/> */}
-                            // <RegisterStudentAll />
-                            {/* <ViewSubjectsAll usernameLog={this.props.usernameLog} nameLog={this.props.nameLog}/> */}
-                            {/* <RequestDocsAll usernameLog={this.props.usernameLog} nameLog={this.props.nameLog}/> */}
                         </ContentBox>
                     </Col>     
                 </Sidebar>

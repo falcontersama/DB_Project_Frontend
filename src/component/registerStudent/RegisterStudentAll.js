@@ -28,11 +28,9 @@ export default class RegisterStudentAll extends Component {
         this.handleGened = this.handleGened.bind(this)
     }
 
-    searchSubject(idx,namex,genedx){
+    searchSubject(){
         axios.get(API_listCourses, {params: {courseID: this.state.id}})
             .then((response) => {
-                
-                console.log(response.data.data)
                 this.setState({subject:response.data.data})})
             .catch((error) => console.log(error))
     }
@@ -47,20 +45,20 @@ export default class RegisterStudentAll extends Component {
 
     handleGened(e){
         this.setState({gened:e.target.checked}) //true is uncheck, false is check
-        console.log(this.state.gened)
     }
 
     selectSubject(subj){
-        //this.setState({selectedSubject:subj})
-        console.log(subj)
         axios.get(API_courseDetail, {params: {courseID: subj}})
             .then((response) => {
+                if(response.data.data.length > 0){
+                    this.setState({selectedSubject:response.data.data })
+                }
                 
-                console.log(response.data.data)
-                this.setState({selectedSubject:response.data.data })
             })
             .then((response) => {
-                this.setState({showSelected:true })
+                if(response.data.data.length > 0){
+                    this.setState({showSelected:true })
+                }
             })
             .catch((error) => console.log(error))
     }

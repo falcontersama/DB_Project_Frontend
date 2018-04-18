@@ -36,11 +36,10 @@ export default class Registration extends Component{
 
     handleGened(e){
         this.props.handleGened(e) //true is uncheck, false is check
-        console.log(this.state.gened)
     }
     
     searchSubject(){
-        this.props.searchSubject(this.state.id,this.state.name,this.state.gened)
+        this.props.searchSubject()
     }
     
     render(){
@@ -76,7 +75,7 @@ export default class Registration extends Component{
 
                         <FormControl.Feedback />
                         <div>
-                        <Checkbox checked={this.state.gened} onClick={this.handleGened}>Gened</Checkbox>
+                        <Checkbox onClick={this.handleGened}>Gened</Checkbox>
                         
                         </div>
                     </FormGroup>

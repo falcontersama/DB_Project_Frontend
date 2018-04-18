@@ -34,7 +34,6 @@ export default class News extends Component{
             <div>
                 <ul>
                     {this.state.inform.map((obj,index)=>{
-                        console.log(obj)
                         return(
                             <li key={index}>{obj.name}</li>
                         )

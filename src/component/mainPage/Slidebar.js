@@ -177,9 +177,9 @@ export default class Slidebar extends Component{
                                     }
                                 }
                             } */}
-                            {/* <Schedule/> */}
-                            <RegisterStudentAll />
-                            {/* <ViewSubjectsAll usernameLog={this.props.usernameLog} nameLog={this.props.nameLog}/> */}
+                            <Schedule/>
+                            {/* <RegisterStudentAll /> */}
+                            {/* <ViewSubjectsAll usernameLog={this.props.usernameLog} nameLog={this.props.nameLog} canWithdraw={true}/> */}
                             {/* <RequestDocsAll usernameLog={this.props.usernameLog} nameLog={this.props.nameLog}/> */}
                         </ContentBox>
                     </Col>     

@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import {form, FormGroup, FormControl, Button} from 'react-bootstrap'
-import styled from 'styled-components';
-import Redirect from 'react-router-dom/Redirect';
+import styled from 'styled-components'
+import Redirect from 'react-router-dom/Redirect'
+import { Link } from 'react-router-dom'
 
 const LoginBox = styled.div`
     position: absolute;
@@ -80,7 +81,7 @@ export default class Login extends Component{
                         
                         <FormControl.Feedback />
                         <br />
-                        <Button onClick={this.loginProcess}><h4>Login</h4></Button>
+                        <Button onClick={this.loginProcess}><Link to="/Main"><h4>Login</h4></Link></Button>
                         </FormGroup>
                     </form>
                 </LoginBox>

@@ -5,16 +5,20 @@
       "subjectName": "COMPUTER PROGRAMMING",
       "semester": "1",
       "year": "2015",
-      "section": 33,
-      "classes": [
-        {
-          "day": "MON",
-          "time": "8:00-9:30",
-          "roomID": "402",
-          "buildingID": "4"
-        }
-      ],
-      "teacher": "SPJ",
+      "detail": {
+        "sec": 33,
+        "time": [
+          {
+            "day": "MON",
+            "time": "8:00-9:30",
+            "roomID": "402",
+            "buildingID": "4"
+          }
+        ],
+        "teacher": [
+          "SPJ"
+        ]
+      },
       "grade": "A"
     },
     {
@@ -22,16 +26,20 @@
       "subjectName": "GENERAL PHYSICS I",
       "semester": "1",
       "year": "2015",
-      "section": 1,
-      "classes": [
-        {
-          "day": "MON",
-          "time": "8:00-9:30",
-          "roomID": "402",
-          "buildingID": "4"
-        }
-      ],
-      "teacher": "STAFF",
+      "detail": {
+        "sec": 1,
+        "time": [
+          {
+            "day": "MON",
+            "time": "8:00-9:30",
+            "roomID": "402",
+            "buildingID": "4"
+          }
+        ],
+        "teacher": [
+          "STAFF"
+        ]
+      },
       "grade": "C+"
     },
     {
@@ -39,16 +47,20 @@
       "subjectName": "COMP ENG MATH",
       "semester": "1",
       "year": "2016",
-      "section": 2,
-      "classes": [
-        {
-          "day": "MON",
-          "time": "8:00-9:30",
-          "roomID": "402",
-          "buildingID": "4"
-        }
-      ],
-      "teacher": "ASR",
+      "detail": {
+        "sec": 2,
+        "time": [
+          {
+            "day": "MON",
+            "time": "8:00-9:30",
+            "roomID": "402",
+            "buildingID": "4"
+          }
+        ],
+        "teacher": [
+          "ASR"
+        ]
+      },
       "grade": "B"
     },
     {
@@ -56,16 +68,20 @@
       "subjectName": "COMP ENG MATH",
       "semester": "1",
       "year": "2016",
-      "section": 2,
-      "classes": [
-        {
-          "day": "MON",
-          "time": "8:00-9:30",
-          "roomID": "402",
-          "buildingID": "4"
-        }
-      ],
-      "teacher": "ASR",
+      "detail": {
+        "sec": 2,
+        "time": [
+          {
+            "day": "MON",
+            "time": "8:00-9:30",
+            "roomID": "402",
+            "buildingID": "4"
+          }
+        ],
+        "teacher": [
+          "ASR"
+        ]
+      },
       "grade": "B"
     },
     {
@@ -73,16 +89,20 @@
       "subjectName": "COMP ENG MATH",
       "semester": "1",
       "year": "2016",
-      "section": 2,
-      "classes": [
-        {
-          "day": "MON",
-          "time": "8:00-9:30",
-          "roomID": "402",
-          "buildingID": "4"
-        }
-      ],
-      "teacher": "ASR",
+      "detail": {
+        "sec": 2,
+        "time": [
+          {
+            "day": "MON",
+            "time": "8:00-9:30",
+            "roomID": "402",
+            "buildingID": "4"
+          }
+        ],
+        "teacher": [
+          "ASR"
+        ]
+      },
       "grade": "B"
     },
     {
@@ -90,16 +110,20 @@
       "subjectName": "COMP ENG MATH",
       "semester": "1",
       "year": "2016",
-      "section": 2,
-      "classes": [
-        {
-          "day": "MON",
-          "time": "8:00-9:30",
-          "roomID": "402",
-          "buildingID": "4"
-        }
-      ],
-      "teacher": "ASR",
+      "detail": {
+        "sec": 2,
+        "time": [
+          {
+            "day": "MON",
+            "time": "8:00-9:30",
+            "roomID": "402",
+            "buildingID": "4"
+          }
+        ],
+        "teacher": [
+          "ASR"
+        ]
+      },
       "grade": "B"
     },
     {
@@ -107,16 +131,20 @@
       "subjectName": "DIS SYS ESSEN",
       "semester": "2",
       "year": "2017",
-      "section": 1,
-      "classes": [
-        {
-          "day": "MON",
-          "time": "8:00-9:30",
-          "roomID": "402",
-          "buildingID": "4"
-        }
-      ],
-      "teacher": "ASR",
+      "detail": {
+        "sec": 1,
+        "time": [
+          {
+            "day": "MON",
+            "time": "8:00-9:30",
+            "roomID": "402",
+            "buildingID": "4"
+          }
+        ],
+        "teacher": [
+          "ASR"
+        ]
+      },
       "grade": "-"
     },
     {
@@ -124,22 +152,26 @@
       "subjectName": "SYS ANALYSIS DSGN",
       "semester": "2",
       "year": "2017",
-      "section": 2,
-      "classes": [
-        {
-          "day": "TUE",
-          "time": "9:30-11:00",
-          "roomID": "402",
-          "buildingID": "4"
-        },
-        {
-          "day": "THU",
-          "time": "9:30-11:00",
-          "roomID": "402",
-          "buildingID": "4"
-        }
-      ],
-      "teacher": "ASR",
+      "detail": {
+        "sec": 2,
+        "time": [
+          {
+            "day": "TUE",
+            "time": "9:30-11:00",
+            "roomID": "402",
+            "buildingID": "4"
+          },
+          {
+            "day": "THU",
+            "time": "9:30-11:00",
+            "roomID": "402",
+            "buildingID": "4"
+          }
+        ],
+        "teacher": [
+          "ASR"
+        ]
+      },
       "grade": "-"
     },
     {
@@ -147,16 +179,20 @@
       "subjectName": "DB MGT SYS DESIGN",
       "semester": "2",
       "year": "2017",
-      "section": 33,
-      "classes": [
-        {
-          "day": "MON",
-          "time": "8:00-9:30",
-          "roomID": "402",
-          "buildingID": "4"
-        }
-      ],
-      "teacher": "ASR",
+      "detail": {
+        "sec": 33,
+        "time": [
+          {
+            "day": "MON",
+            "time": "8:00-9:30",
+            "roomID": "402",
+            "buildingID": "4"
+          }
+        ],
+        "teacher": [
+          "ASR"
+        ]
+      },
       "grade": "-"
     },
     {
@@ -164,16 +200,20 @@
       "subjectName": "COMP NETWORK I",
       "semester": "2",
       "year": "2017",
-      "section": 33,
-      "classes": [
-        {
-          "day": "MON",
-          "time": "8:00-9:30",
-          "roomID": "402",
-          "buildingID": "4"
-        }
-      ],
-      "teacher": "ASR",
+      "detail": {
+        "sec": 33,
+        "time": [
+          {
+            "day": "MON",
+            "time": "8:00-9:30",
+            "roomID": "402",
+            "buildingID": "4"
+          }
+        ],
+        "teacher": [
+          "ASR"
+        ]
+      },
       "grade": "-"
     },
     {
@@ -181,16 +221,20 @@
       "subjectName": "TECH WRIT ENG",
       "semester": "2",
       "year": "2017",
-      "section": 9,
-      "classes": [
-        {
-          "day": "MON",
-          "time": "8:00-9:30",
-          "roomID": "402",
-          "buildingID": "4"
-        }
-      ],
-      "teacher": "ASR",
+      "detail": {
+        "sec": 9,
+        "time": [
+          {
+            "day": "MON",
+            "time": "8:00-9:30",
+            "roomID": "402",
+            "buildingID": "4"
+          }
+        ],
+        "teacher": [
+          "ASR"
+        ]
+      },
       "grade": "-"
     }
   ]

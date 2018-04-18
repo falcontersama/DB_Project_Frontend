@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import {Navbar,Col} from 'react-bootstrap'
 import styled from 'styled-components'
 import Sidebar from 'react-sidebar'
+import { Link } from 'react-router-dom'
 
 //Page
 import Startpage from './Startpage'
@@ -48,7 +49,7 @@ const studentCommand = (
             <h6>ขอเอกสาร</h6>
             </div>    
             <div>
-            <h6>ออกจากระบบ</h6>
+            <Link to="/"><h6>ออกจากระบบ</h6></Link>
             </div>
         </div>
     );
@@ -79,7 +80,7 @@ const teacherCommand = (
             <h6>เพิ่มงาน</h6>
             </div>    
             <div>
-            <h6>ออกจากระบบ</h6>
+            <Link to="/"><div><h6>ออกจากระบบ</h6></div></Link>
             </div>
         </div>
     );

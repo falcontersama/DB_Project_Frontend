@@ -34,56 +34,29 @@ const HamburgerBox = styled.div`
     margin-right: auto;
 `;
 
-const studentCommand = (
-        <div>  
-            <div>
-            <h6>หน้าหลัก</h6>
-            </div>    
-            <div>
-            <h6>ลงทะเบียนวิชา/เพิ่ม</h6>
-            </div>        
-            <div>
-            <h6>จัดการรายวิชา</h6>
-            </div>
-            <div>
-            <h6>ขอเอกสาร</h6>
-            </div>    
-            <div>
-            <Link to="/"><h6>ออกจากระบบ</h6></Link>
-            </div>
-        </div>
-    );
 
-// const studentCommand = [
-//     {subpage: "home", text: "หน้าหลัก"},
-//     {subpage: "register", text: "ลงทะเบียนวิชา/เพิ่ม"},
-//     {subpage: "viewSubjects", text: "จัดการรายวิชา"},
-//     {subpage: "requestDocs", text: "ขอเอกสาร"},
-//     {subpage: "logout", text: "ออกจากระบบ"}
-// ];
-
-const teacherCommand = (
-        <div>
-            <div>
-            <h6>หน้าหลัก</h6>
-            </div>    
-            <div>
-            <h6>จัดการการสอนรายวิชา</h6>
-            </div>        
-            <div>
-            <h6>บันทึกเกรด</h6>
-            </div>
-            <div>
-            <h6>ตรวจสอบนิสิตในความดูแล</h6>
-            </div>
-            <div>
-            <h6>เพิ่มงาน</h6>
-            </div>    
-            <div>
-            <Link to="/"><div><h6>ออกจากระบบ</h6></div></Link>
-            </div>
-        </div>
-    );
+// const teacherCommand = (
+//         <div>
+//             <div onClick={()=> {this.changePageState(1)}}>
+//             <h6>หน้าหลัก</h6>
+//             </div>    
+//             <div onClick={()=> {this.changePageState(2)}}>
+//             <h6>จัดการการสอนรายวิชา</h6>
+//             </div>        
+//             <div onClick={()=>this.changePageState(3)}>
+//             <h6>บันทึกเกรด</h6>
+//             </div>
+//             <div onClick={()=>this.changePageState(4)}>
+//             <h6>ตรวจสอบนิสิตในความดูแล</h6>
+//             </div>
+//             <div onClick={()=>this.changePageState(5)}>
+//             <h6>เพิ่มงาน</h6>
+//             </div>    
+//             <div>
+//             <Link to="/"><div><h6>ออกจากระบบ</h6></div></Link>
+//             </div>
+//         </div>
+//     );
 
 
 const mql = window.matchMedia(`(min-width: 800px)`);
@@ -96,11 +69,18 @@ export default class Slidebar extends Component{
             open: props.open,
             tabs: 1,
             sidebarOpen: false,
+            pageState: 1,
             // userType: "student",
             // subpage: "home"
         }
-        this.mediaQueryChanged = this.mediaQueryChanged.bind(this);
-        this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this);
+        this.mediaQueryChanged = this.mediaQueryChanged.bind(this)
+        this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this)
+        this.changePageState = this.changePageState.bind(this)
+    }
+
+    changePageState(state){
+        console.log(this.state.pageState)
+        this.setState({pageState:state})
     }
 
     onSetSidebarOpen(open) {
@@ -138,10 +118,23 @@ export default class Slidebar extends Component{
                 </Navbar.Header>
                 </Navbar>
                 <SlideBox>
-                      {studentCommand}
-                      {/* {studentCommand.map((item, i) => (
-                          <div><h6 onClick={this.setState({subpage: item.subpage})}>{item.text}</h6></div>
-                      ))} */}
+                <div>  
+                    <div onClick={()=>this.changePageState(1)}>
+                    <h6>หน้าหลัก</h6>
+                    </div>    
+                    <div onClick={()=>this.changePageState(2)}>
+                    <h6>ลงทะเบียนวิชา/เพิ่ม</h6>
+                    </div>        
+                    <div onClick={()=>this.changePageState(3)}>
+                    <h6>จัดการรายวิชา</h6>
+                    </div>
+                    <div onClick={()=>this.changePageState(4)}>
+                    <h6>ขอเอกสาร</h6>
+                    </div>    
+                    <div>
+                    <Link to="/"><h6>ออกจากระบบ</h6></Link>
+                    </div>
+                </div>
                 </SlideBox>
             </div>;
 
@@ -167,6 +160,10 @@ export default class Slidebar extends Component{
                     </Col>
                     <Col xs={21}>
                         <ContentBox>
+                            {this.state.pageState == 1 ? <Startpage/>:
+                             this.state.pageState == 2 ? <RegisterStudentAll/>:
+                             this.state.pageState == 3 ? <ViewSubjectsAll />:
+                             this.state.pageState == 4 ? <RequestDocsAll />: <div/>}
                             {/* {() => {
                                 switch(this.state.userType) {
                                     case "student":
@@ -179,7 +176,7 @@ export default class Slidebar extends Component{
                                 }
                             } */}
                             {/* <Schedule/> */}
-                            <RegisterStudentAll />
+                            // <RegisterStudentAll />
                             {/* <ViewSubjectsAll usernameLog={this.props.usernameLog} nameLog={this.props.nameLog}/> */}
                             {/* <RequestDocsAll usernameLog={this.props.usernameLog} nameLog={this.props.nameLog}/> */}
                         </ContentBox>

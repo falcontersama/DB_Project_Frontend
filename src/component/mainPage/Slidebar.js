@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {Navbar,Col} from 'react-bootstrap'
+import {Navbar,Col, Tab} from 'react-bootstrap'
 import styled from 'styled-components'
 import Sidebar from 'react-sidebar'
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
@@ -17,14 +17,24 @@ const ContentBox = styled.div`
 
 `;
 
-const SlideBox = styled.div`
+const SideBox = styled.div`
     width: 15vw;
     height: 100vh;
-    background-color: white;
+    background-color: rgb(253,195,215);
     color: black;
-    padding: 16px;
     display: block;
     min-width: 150px;
+`;
+
+const TabBox = styled.div`
+    &:hover {
+        background-color: white;
+    }
+    width:100%;
+    height:100%;
+    padding:10px;
+    color:black;
+    font-family: sans-serif;
 `;
 
 const HamburgerBox = styled.div`
@@ -35,6 +45,13 @@ const HamburgerBox = styled.div`
     margin-right: auto;
 `;
 
+const StyledLink = styled(Link)`
+    text-decoration: none;
+
+    &:focus, &:hover, &:visited, &:link, &:active {
+        text-decoration: none;
+    }
+`;
 
 // const teacherCommand = (
 //         <div>
@@ -118,25 +135,16 @@ export default class Slidebar extends Component{
                     </Navbar.Brand>
                 </Navbar.Header>
                 </Navbar>
-                <SlideBox>
+                <SideBox>
                 <div>  
-                    <div>
-                    <Link to="/Main"><h6>หน้าหลัก</h6></Link>
-                    </div>    
-                    <div>
-                    <Link to="/Main/register"><h6>ลงทะเบียนวิชา/เพิ่ม</h6></Link>
-                    </div>        
-                    <div>
-                    <Link to="/Main/manage"><h6>จัดการรายวิชา</h6></Link>
-                    </div>
-                    <div>
-                    <Link to="/Main/document"><h6>ขอเอกสาร</h6></Link>
-                    </div>    
-                    <div>
-                    <Link to="/"><h6>ออกจากระบบ</h6></Link>
-                    </div>
+                    <StyledLink to="/Main"><TabBox>หน้าหลัก</TabBox></StyledLink>    
+                    <StyledLink to="/Main/register"><TabBox>ลงทะเบียนวิชา/เพิ่ม</TabBox></StyledLink>       
+                    <StyledLink to="/Main/manage"><TabBox>จัดการรายวิชา</TabBox></StyledLink>
+                    <StyledLink to="/Main/document"><TabBox>ขอเอกสาร</TabBox></StyledLink>
+                    <StyledLink to="/"><TabBox>ออกจากระบบ</TabBox></StyledLink>
+                    
                 </div>
-                </SlideBox>
+                </SideBox>
             </div>;
 
         var sidebarProps = {
@@ -161,10 +169,6 @@ export default class Slidebar extends Component{
                     </Col>
                     <Col xs={21}>
                         <ContentBox>
-                            {/* {this.state.pageState == 1 ? <Startpage/>:
-                             this.state.pageState == 2 ? <RegisterStudentAll/>:
-                             this.state.pageState == 3 ? <ViewSubjectsAll />:
-                             this.state.pageState == 4 ? <RequestDocsAll />: <div/>} */}
                              <Route exact path="/Main" render={()=><RecordgradeAll/>} />
                              <Route exact path="/Main/register" render={()=><RegisterStudentAll/>} />
                              <Route exact path="/Main/manage" render={()=><ViewSubjectsAll/>} />

@@ -37,7 +37,6 @@ export default class BottomLeft extends Component {
                                     <td>{item.subjectID}</td>
                                     <td>{item.subjectName}</td>
                                 
-                                    
                                 </tr>
                             )}
                         </tbody>

@@ -9,7 +9,7 @@ const McvBox = styled.div`
     text-align: center
 `;
 
-export default class Mcv extends Component{
+export default class TeacherMcv extends Component{
     render(){
         return(
             <McvBox>

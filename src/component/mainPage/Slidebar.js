@@ -10,6 +10,7 @@ import RegisterStudentAll from '../registerStudent/RegisterStudentAll'
 import ViewSubjectsAll from '../viewSubjects/ViewSubjectsAll'
 import RequestDocsAll from '../requestDocs/RequestDocsAll'
 import Schedule from './Schedule'
+import RecordgradeAll from '../Recordgrade/RecordgraadeAll'
 
 const ContentBox = styled.div`
     padding: 10px 10px 0px 60px;
@@ -164,7 +165,7 @@ export default class Slidebar extends Component{
                              this.state.pageState == 2 ? <RegisterStudentAll/>:
                              this.state.pageState == 3 ? <ViewSubjectsAll />:
                              this.state.pageState == 4 ? <RequestDocsAll />: <div/>} */}
-                             <Route exact path="/Main" render={()=><Startpage/>} />
+                             <Route exact path="/Main" render={()=><RecordgradeAll/>} />
                              <Route exact path="/Main/register" render={()=><RegisterStudentAll/>} />
                              <Route exact path="/Main/manage" render={()=><ViewSubjectsAll/>} />
                              <Route exact path="/Main/document" render={()=><RequestDocsAll/>} />

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import {Navbar,Col} from 'react-bootstrap'
 import styled from 'styled-components'
 import Sidebar from 'react-sidebar'
-import { Link } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
 //Page
 import Startpage from './Startpage'
@@ -119,17 +119,17 @@ export default class Slidebar extends Component{
                 </Navbar>
                 <SlideBox>
                 <div>  
-                    <div onClick={()=>this.changePageState(1)}>
-                    <h6>หน้าหลัก</h6>
+                    <div>
+                    <Link to="/Main"><h6>หน้าหลัก</h6></Link>
                     </div>    
-                    <div onClick={()=>this.changePageState(2)}>
-                    <h6>ลงทะเบียนวิชา/เพิ่ม</h6>
+                    <div>
+                    <Link to="/Main/register"><h6>ลงทะเบียนวิชา/เพิ่ม</h6></Link>
                     </div>        
-                    <div onClick={()=>this.changePageState(3)}>
-                    <h6>จัดการรายวิชา</h6>
+                    <div>
+                    <Link to="/Main/manage"><h6>จัดการรายวิชา</h6></Link>
                     </div>
-                    <div onClick={()=>this.changePageState(4)}>
-                    <h6>ขอเอกสาร</h6>
+                    <div>
+                    <Link to="/Main/document"><h6>ขอเอกสาร</h6></Link>
                     </div>    
                     <div>
                     <Link to="/"><h6>ออกจากระบบ</h6></Link>
@@ -160,10 +160,14 @@ export default class Slidebar extends Component{
                     </Col>
                     <Col xs={21}>
                         <ContentBox>
-                            {this.state.pageState == 1 ? <Startpage/>:
+                            {/* {this.state.pageState == 1 ? <Startpage/>:
                              this.state.pageState == 2 ? <RegisterStudentAll/>:
                              this.state.pageState == 3 ? <ViewSubjectsAll />:
-                             this.state.pageState == 4 ? <RequestDocsAll />: <div/>}
+                             this.state.pageState == 4 ? <RequestDocsAll />: <div/>} */}
+                             <Route exact path="/Main" render={()=><Startpage/>} />
+                             <Route exact path="/Main/register" render={()=><RegisterStudentAll/>} />
+                             <Route exact path="/Main/manage" render={()=><ViewSubjectsAll/>} />
+                             <Route exact path="/Main/document" render={()=><RequestDocsAll/>} />
                         </ContentBox>
                     </Col>     
                 </Sidebar>

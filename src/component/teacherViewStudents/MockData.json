@@ -1,0 +1,44 @@
+{
+	"MOCK_STUDENTS": [
+		{
+			"studentID": "5835626321",
+			"studentName": "Foo Bar"
+		},
+		{
+			"studentID": "5831125021",
+			"studentName": "Xyz Zy"
+		},
+		{
+			"studentID": "5835626321",
+			"studentName": "Foo Bar"
+		},
+		{
+			"studentID": "5831125021",
+			"studentName": "Xyz Zy"
+		},
+		{
+			"studentID": "5835626321",
+			"studentName": "Foo Bar"
+		},
+		{
+			"studentID": "5831125021",
+			"studentName": "Xyz Zy"
+		},
+		{
+			"studentID": "5835626321",
+			"studentName": "Foo Bar"
+		},
+		{
+			"studentID": "5831125021",
+			"studentName": "Xyz Zy"
+		},
+		{
+			"studentID": "5835626321",
+			"studentName": "Foo Bar"
+		},
+		{
+			"studentID": "5831125021",
+			"studentName": "Xyz Zy"
+		}
+	]
+}

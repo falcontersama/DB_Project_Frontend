@@ -15,6 +15,7 @@ import TeacherMainAll from '../teacherMain/TeacherMainAll'
 import TeacherCourseville from '../teacherCourseville/TeacherCoursevilleAll'
 import RecordgradeAll from '../Recordgrade/RecordgraadeAll'
 import TeacherViewStudentsAll from '../teacherViewStudents/TeacherViewStudentsAll'
+import TeacherAddAssignmentAll from '../teacherAddAssignment/TeacherAddAssignmentAll'
 
 const ContentBox = styled.div`
     padding: 10px 10px 0px 60px;
@@ -197,6 +198,7 @@ export default class Slidebar extends Component{
                                     <Route exact path="/Main/manageWork" render={()=><RegisterStudentAll/>} />
                                     <Route exact path="/Main/recordGrade" render={()=><ViewSubjectsAll/>} />
                                     <Route exact path="/Main/teacherViewStudent" render={()=><TeacherViewStudentsAll/>} />
+                                    <Route exact path="/Main/teacherAddAssignment" render={()=><TeacherAddAssignmentAll/>} />
                                 </ContentBox>:<div/>
                             }
                         

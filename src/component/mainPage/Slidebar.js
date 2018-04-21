@@ -13,7 +13,7 @@ import RequestDocsAll from '../requestDocs/RequestDocsAll'
 //Page teacher
 import TeacherMainAll from '../teacherMain/TeacherMainAll'
 import TeacherCourseville from '../teacherCourseville/TeacherCoursevilleAll'
-import RecordgradeAll from '../Recordgrade/RecordgraadeAll'
+import RecordgradeAll from '../recordgrade/RecordgraadeAll'
 import TeacherViewStudentsAll from '../teacherViewStudents/TeacherViewStudentsAll'
 
 const ContentBox = styled.div`
@@ -56,30 +56,6 @@ const StyledLink = styled(Link)`
         text-decoration: none;
     }
 `;
-
-// const teacherCommand = (
-//         <div>
-//             <div onClick={()=> {this.changePageState(1)}}>
-//             <h6>หน้าหลัก</h6>
-//             </div>    
-//             <div onClick={()=> {this.changePageState(2)}}>
-//             <h6>จัดการการสอนรายวิชา</h6>
-//             </div>        
-//             <div onClick={()=>this.changePageState(3)}>
-//             <h6>บันทึกเกรด</h6>
-//             </div>
-//             <div onClick={()=>this.changePageState(4)}>
-//             <h6>ตรวจสอบนิสิตในความดูแล</h6>
-//             </div>
-//             <div onClick={()=>this.changePageState(5)}>
-//             <h6>เพิ่มงาน</h6>
-//             </div>    
-//             <div>
-//             <Link to="/"><div><h6>ออกจากระบบ</h6></div></Link>
-//             </div>
-//         </div>
-//     );
-
 
 const mql = window.matchMedia(`(min-width: 800px)`);
 
@@ -186,7 +162,7 @@ export default class Slidebar extends Component{
                         
                             {this.props.status == "student" ?
                                 <ContentBox>
-                                    <Route exact path="/Main" render={()=><RecordgradeAll/>} />
+                                    <Route exact path="/Main" render={()=><Startpage/>} />
                                     {/* <Route exact path="/Main" render={()=><TeacherViewStudentsAll/>} /> */}
                                     <Route exact path="/Main/register" render={()=><RegisterStudentAll/>} />
                                     <Route exact path="/Main/manage" render={()=><ViewSubjectsAll/>} />
@@ -194,16 +170,14 @@ export default class Slidebar extends Component{
                                 </ContentBox>:
                             this.props.status == "teacher" ? 
                                 <ContentBox>
-                                    <Route exact path="/Main" render={()=><RecordgradeAll/>} />
-                                    <Route exact path="/Main/manageWork" render={()=><RegisterStudentAll/>} />
-                                    <Route exact path="/Main/recordGrade" render={()=><ViewSubjectsAll/>} />
-                                    <Route exact path="/Main/teacherViewStudent" render={()=><RequestDocsAll/>} />
+                                    <Route exact path="/Main" render={()=><TeacherMainAll/>} />
+                                    <Route exact path="/Main/manageWork" render={()=><TeacherCourseville/>} />
+                                    <Route exact path="/Main/recordGrade" render={()=><RecordgradeAll/>} />
+                                    <Route exact path="/Main/teacherViewStudent" render={()=><TeacherViewStudentsAll/>} />
                                 </ContentBox>:<div/>
                             }
-                        
                     </Col>     
                 </Sidebar>
-            
             </div>
         )
     }

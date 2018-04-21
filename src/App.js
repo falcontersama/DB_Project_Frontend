@@ -12,7 +12,7 @@ class App extends Component {
           usernameLog:"5831006021",
           passwordLog:"",
           nameLog:"Jakkaraj",
-          status:"student"
+          status:"teacher"
           
       }
       this.handleLogin = this.handleLogin.bind(this)

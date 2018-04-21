@@ -8,7 +8,7 @@ export default class Main extends Component {
         return(
             <div>
                 <div>
-                <Slidebar usernameLog={this.props.usernameLog} nameLog={this.props.nameLog}/>
+                <Slidebar usernameLog={this.props.usernameLog} nameLog={this.props.nameLog} status={this.props.status}/>
                 
                 </div>
             </div>

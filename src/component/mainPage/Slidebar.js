@@ -136,14 +136,25 @@ export default class Slidebar extends Component{
                 </Navbar.Header>
                 </Navbar>
                 <SideBox>
-                <div>  
-                    <StyledLink to="/Main"><TabBox>หน้าหลัก</TabBox></StyledLink>    
-                    <StyledLink to="/Main/register"><TabBox>ลงทะเบียนวิชา/เพิ่ม</TabBox></StyledLink>       
-                    <StyledLink to="/Main/manage"><TabBox>จัดการรายวิชา</TabBox></StyledLink>
-                    <StyledLink to="/Main/document"><TabBox>ขอเอกสาร</TabBox></StyledLink>
-                    <StyledLink to="/"><TabBox>ออกจากระบบ</TabBox></StyledLink>
-                    
-                </div>
+                {this.state.status == "student" ? 
+                    <div>
+                        <StyledLink to="/Main"><TabBox>หน้าหลัก</TabBox></StyledLink>    
+                        <StyledLink to="/Main/register"><TabBox>ลงทะเบียนวิชา/เพิ่ม</TabBox></StyledLink>       
+                        <StyledLink to="/Main/manage"><TabBox>จัดการรายวิชา</TabBox></StyledLink>
+                        <StyledLink to="/Main/document"><TabBox>ขอเอกสาร</TabBox></StyledLink>
+                        <StyledLink to="/"><TabBox>ออกจากระบบ</TabBox></StyledLink>
+                    </div> : 
+                this.state.status == "teacher" ?
+                    <div>
+                        <StyledLink to="/Main"><TabBox>หน้าหลัก</TabBox></StyledLink>    
+                        <StyledLink to="/Main/register"><TabBox>ลงทะเบียนวิชา/เพิ่ม</TabBox></StyledLink>       
+                        <StyledLink to="/Main/recordGrade"><TabBox>จัดการรายวิชา</TabBox></StyledLink>
+                        <StyledLink to="/Main/document"><TabBox>ขอเอกสาร</TabBox></StyledLink>
+                        <StyledLink to="/"><TabBox>ออกจากระบบ</TabBox></StyledLink>
+                    </div>:
+                    <div>
+                    </div>
+                }
                 </SideBox>
             </div>;
 

@@ -4,12 +4,15 @@ import styled from 'styled-components'
 import Sidebar from 'react-sidebar'
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
-//Page
+//Page student
 import Startpage from './Startpage'
 import RegisterStudentAll from '../registerStudent/RegisterStudentAll'
 import ViewSubjectsAll from '../viewSubjects/ViewSubjectsAll'
 import RequestDocsAll from '../requestDocs/RequestDocsAll'
-import Schedule from './Schedule'
+
+//Page teacher
+import TeacherMainAll from '../teacherMain/TeacherMainAll'
+import TeacherCourseville from '../teacherCourseville/TeacherCoursevilleAll'
 import RecordgradeAll from '../Recordgrade/RecordgraadeAll'
 import TeacherViewStudentsAll from '../teacherViewStudents/TeacherViewStudentsAll'
 
@@ -137,14 +140,25 @@ export default class Slidebar extends Component{
                 </Navbar.Header>
                 </Navbar>
                 <SideBox>
-                <div>  
-                    <StyledLink to="/Main"><TabBox>หน้าหลัก</TabBox></StyledLink>    
-                    <StyledLink to="/Main/register"><TabBox>ลงทะเบียนวิชา/เพิ่ม</TabBox></StyledLink>       
-                    <StyledLink to="/Main/manage"><TabBox>จัดการรายวิชา</TabBox></StyledLink>
-                    <StyledLink to="/Main/document"><TabBox>ขอเอกสาร</TabBox></StyledLink>
-                    <StyledLink to="/"><TabBox>ออกจากระบบ</TabBox></StyledLink>
-                    
-                </div>
+                {this.props.status == "student" ? 
+                    <div>
+                        <StyledLink to="/Main"><TabBox>หน้าหลัก</TabBox></StyledLink>    
+                        <StyledLink to="/Main/register"><TabBox>ลงทะเบียนวิชา/เพิ่ม</TabBox></StyledLink>       
+                        <StyledLink to="/Main/manage"><TabBox>จัดการรายวิชา</TabBox></StyledLink>
+                        <StyledLink to="/Main/document"><TabBox>ขอเอกสาร</TabBox></StyledLink>
+                        <StyledLink to="/"><TabBox>ออกจากระบบ</TabBox></StyledLink>
+                    </div> : 
+                this.props.status == "teacher" ?
+                    <div>
+                        <StyledLink to="/Main"><TabBox>หน้าหลัก</TabBox></StyledLink>    
+                        <StyledLink to="/Main/manageWork"><TabBox>จัดการงานตามรายวิชา</TabBox></StyledLink>       
+                        <StyledLink to="/Main/recordGrade"><TabBox>บันทึกเกรด</TabBox></StyledLink>
+                        <StyledLink to="/Main/teacherViewStudent"><TabBox>ดูนิสิตในสังกัด</TabBox></StyledLink>
+                        <StyledLink to="/"><TabBox>ออกจากระบบ</TabBox></StyledLink>
+                    </div>:
+                    <div>
+                    </div>
+                }
                 </SideBox>
             </div>;
 
@@ -169,13 +183,23 @@ export default class Slidebar extends Component{
                 
                     </Col>
                     <Col xs={21}>
-                        <ContentBox>
-                             <Route exact path="/Main" render={()=><RecordgradeAll/>} />
-                             {/* <Route exact path="/Main" render={()=><TeacherViewStudentsAll/>} /> */}
-                             <Route exact path="/Main/register" render={()=><RegisterStudentAll/>} />
-                             <Route exact path="/Main/manage" render={()=><ViewSubjectsAll nameLog={this.props.nameLog} usernameLog={this.props.usernameLog}/>} />
-                             <Route exact path="/Main/document" render={()=><RequestDocsAll nameLog={this.props.nameLog} usernameLog={this.props.usernameLog}/>} />
-                        </ContentBox>
+                        
+                            {this.props.status == "student" ?
+                                <ContentBox>
+                                    <Route exact path="/Main" render={()=><RecordgradeAll/>} />
+                                    <Route exact path="/Main/register" render={()=><RegisterStudentAll/>} />
+                                    <Route exact path="/Main/manage" render={()=><ViewSubjectsAll nameLog={this.props.nameLog} usernameLog={this.props.usernameLog}/>} />
+                                    <Route exact path="/Main/document" render={()=><RequestDocsAll nameLog={this.props.nameLog} usernameLog={this.props.usernameLog}/>} />
+                                </ContentBox>:
+                            this.props.status == "teacher" ? 
+                                <ContentBox>
+                                    <Route exact path="/Main" render={()=><RecordgradeAll/>} />
+                                    <Route exact path="/Main/manageWork" render={()=><RegisterStudentAll/>} />
+                                    <Route exact path="/Main/recordGrade" render={()=><ViewSubjectsAll/>} />
+                                    <Route exact path="/Main/teacherViewStudent" render={()=><TeacherViewStudentsAll/>} />
+                                </ContentBox>:<div/>
+                            }
+                        
                     </Col>     
                 </Sidebar>
             

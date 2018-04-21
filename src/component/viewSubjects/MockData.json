@@ -64,69 +64,6 @@
       "grade": "B"
     },
     {
-      "subjectID": "2110201",
-      "subjectName": "COMP ENG MATH",
-      "semester": "1",
-      "year": "2016",
-      "detail": {
-        "sec": 2,
-        "time": [
-          {
-            "day": "MON",
-            "time": "8:00-9:30",
-            "roomID": "402",
-            "buildingID": "4"
-          }
-        ],
-        "teacher": [
-          "ASR"
-        ]
-      },
-      "grade": "B"
-    },
-    {
-      "subjectID": "2110201",
-      "subjectName": "COMP ENG MATH",
-      "semester": "1",
-      "year": "2016",
-      "detail": {
-        "sec": 2,
-        "time": [
-          {
-            "day": "MON",
-            "time": "8:00-9:30",
-            "roomID": "402",
-            "buildingID": "4"
-          }
-        ],
-        "teacher": [
-          "ASR"
-        ]
-      },
-      "grade": "B"
-    },
-    {
-      "subjectID": "2110201",
-      "subjectName": "COMP ENG MATH",
-      "semester": "1",
-      "year": "2016",
-      "detail": {
-        "sec": 2,
-        "time": [
-          {
-            "day": "MON",
-            "time": "8:00-9:30",
-            "roomID": "402",
-            "buildingID": "4"
-          }
-        ],
-        "teacher": [
-          "ASR"
-        ]
-      },
-      "grade": "B"
-    },
-    {
       "subjectID": "2110318",
       "subjectName": "DIS SYS ESSEN",
       "semester": "2",

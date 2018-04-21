@@ -3,11 +3,12 @@ import { Table, Button } from 'react-bootstrap'
 import styled from 'styled-components'
 import axios from 'axios'
 
-import ViewSubjectsAll from '../viewSubjects/ViewSubjectsAll'
+import ViewSubjects from '../viewSubjects/ViewSubjects'
 
 import { MOCK_STUDENTS } from './MockData.json'
+import { MOCK_SUBJECTS } from '../viewSubjects/MockData.json'
 
-// const API_URL = 'http://localhost:3006/studentCourse'
+const API_URL = 'http://localhost:3006/studentCourse'
 
 const ViewStudentBox = styled.div`
     border:1px solid lightgrey;
@@ -31,7 +32,6 @@ export default class TeacherViewStudentsAll extends Component {
 		//     .then((response) => this.setState({students: response.data.data}))
 		//     .catch((error) => console.log(error))
 		this.state = { students: MOCK_STUDENTS, selectedStudent: null }
-		console.log(MOCK_STUDENTS)
 	}
 
 	render() {
@@ -60,7 +60,8 @@ export default class TeacherViewStudentsAll extends Component {
 				</ViewStudentBox>
 				{this.state.selectedStudent !== null && 
 					<ViewStudentBox>
-						<ViewSubjectsAll
+						<ViewSubjects
+							subjects={MOCK_SUBJECTS}
 							nameLog={this.state.selectedStudent.studentID}
 							usernameLog={this.state.selectedStudent.studentName}/>
 					</ViewStudentBox>}

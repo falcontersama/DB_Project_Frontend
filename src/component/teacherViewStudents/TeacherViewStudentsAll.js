@@ -30,10 +30,10 @@ export default class TeacherViewStudentsAll extends Component {
 		this.selectStudent = this.selectStudent.bind(this)
 	}
 
-	selectStudent() {
-		this.setState({selectedStudent: x})
-		axios.get(API_URL, {params: {studentID: username}})
-			.then((response) => this.setState({students: response.data.data}))
+	selectStudent(student) {
+		this.setState({selectedStudent: student})
+		axios.get(API_URL, {params: {studentID: student.studentID}})
+			.then((response) => this.setState({subjects: response.data.data}))
 			.catch((error) => console.log(error))
 	}
 
@@ -53,7 +53,7 @@ export default class TeacherViewStudentsAll extends Component {
 							<tbody>
 								{this.state.students.map((x, idx) => <tr>
 									<td>{x.studentID}</td>
-									<td><Button bsStyle='link' onClick={() => {this.selectStudent()}}>{x.studentName}</Button></td>
+									<td><Button bsStyle='link' onClick={() => {this.selectStudent(x)}}>{x.studentName}</Button></td>
 								</tr>)}
 							</tbody>
 						</Table>

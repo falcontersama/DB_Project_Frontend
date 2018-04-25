@@ -26,11 +26,6 @@ const ViewStudentTable = styled.div`
 export default class TeacherViewStudentsAll extends Component {
 	constructor(props) {
 		super(props)
-		// var username = '5208389731'
-		// var username = this.props.usernameLog
-		// axios.get(API_URL, {params: {studentID: username}})
-		//     .then((response) => this.setState({students: response.data.data}))
-		//     .catch((error) => console.log(error))
 		this.state = { students: MOCK_STUDENTS, selectedStudent: null, subjects: MOCK_SUBJECTS }
 		this.selectStudent = this.selectStudent.bind(this)
 	}

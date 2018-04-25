@@ -24,14 +24,20 @@ function loadSubjects(subjects) {
 export default class ViewSubjectsAll extends Component {
     constructor(props) {
         super(props)
-        var username = '5208389731'
-        // var username = this.props.usernameLog
-        // axios.get(API_URL, {params: {studentID: username}})
-        //     .then((response) => this.setState({subjects: response.data.data}))
-        //     .catch((error) => console.log(error))
         this.state = {
             subjects: MOCK_SUBJECTS
         }
+    }
+
+    componentWillMount() {
+        var username = '5208389731'
+        // var username = this.props.usernameLog
+        axios.get(API_URL, {params: {studentID: username}})
+            .then((response) => {
+                console.log("response", response.data.data)
+                this.setState({subjects: response.data.data})
+            })
+            .catch((error) => console.log(error))
     }
 
     render() {

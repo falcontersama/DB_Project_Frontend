@@ -31,7 +31,15 @@ export default class TeacherViewStudentsAll extends Component {
 		// axios.get(API_URL, {params: {studentID: username}})
 		//     .then((response) => this.setState({students: response.data.data}))
 		//     .catch((error) => console.log(error))
-		this.state = { students: MOCK_STUDENTS, selectedStudent: null }
+		this.state = { students: MOCK_STUDENTS, selectedStudent: null, subjects: MOCK_SUBJECTS }
+		this.selectStudent = this.selectStudent.bind(this)
+	}
+
+	selectStudent() {
+		this.setState({selectedStudent: x})
+		axios.get(API_URL, {params: {studentID: username}})
+			.then((response) => this.setState({students: response.data.data}))
+			.catch((error) => console.log(error))
 	}
 
 	render() {
@@ -50,9 +58,7 @@ export default class TeacherViewStudentsAll extends Component {
 							<tbody>
 								{this.state.students.map((x, idx) => <tr>
 									<td>{x.studentID}</td>
-									<td><Button bsStyle='link' onClick={() => {
-										this.setState({selectedStudent: x})
-										}}>{x.studentName}</Button></td>
+									<td><Button bsStyle='link' onClick={() => {this.selectStudent()}}>{x.studentName}</Button></td>
 								</tr>)}
 							</tbody>
 						</Table>
@@ -61,7 +67,7 @@ export default class TeacherViewStudentsAll extends Component {
 				{this.state.selectedStudent !== null && 
 					<ViewStudentBox>
 						<ViewSubjects
-							subjects={MOCK_SUBJECTS}
+							subjects={this.state.subjects}
 							nameLog={this.state.selectedStudent.studentID}
 							usernameLog={this.state.selectedStudent.studentName}/>
 					</ViewStudentBox>}

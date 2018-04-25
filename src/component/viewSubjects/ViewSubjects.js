@@ -86,10 +86,10 @@ export default class ViewSubjects extends Component {
 									.map((obj, index) => (
 										<tr key={obj.subjectID}>
 											<td>{obj.subjectID} {obj.subjectName}</td>
-											<td>{obj.detail.sec}</td>
-											<td>{obj.detail.time.map((x, idx) => <span key={idx}>{x.day} {x.time}<br /></span>)}</td>
-											<td>{obj.detail.time.map((x, idx) => <span key={idx}>{x.roomID} {x.buildingID}<br /></span>)}</td>
-											<td>{obj.detail.teacher.map((x, idx) => <span key={idx}>{x}<br /></span>)}</td>
+											<td>{obj.sec}</td>
+											<td>{obj.time.map((x, idx) => <span key={idx}>{x.day} {x.time}<br /></span>)}</td>
+											<td>{obj.time.map((x, idx) => <span key={idx}>{x.roomID} {x.buildingID}<br /></span>)}</td>
+											<td>{obj.teacher.map((x, idx) => <span key={idx}>{x}<br /></span>)}</td>
 											<td>{obj.grade}</td>
 											{
 												this.props.canWithdraw &&

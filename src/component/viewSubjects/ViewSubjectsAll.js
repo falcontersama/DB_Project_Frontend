@@ -25,7 +25,8 @@ export default class ViewSubjectsAll extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            subjects: MOCK_SUBJECTS
+            // subjects: MOCK_SUBJECTS
+            subjects: []
         }
     }
 
@@ -33,10 +34,7 @@ export default class ViewSubjectsAll extends Component {
         var username = '5208389731'
         // var username = this.props.usernameLog
         axios.get(API_URL, {params: {studentID: username}})
-            .then((response) => {
-                console.log("response", response.data.data)
-                this.setState({subjects: response.data.data})
-            })
+            .then((response) => this.setState({subjects: response.data.data}))
             .catch((error) => console.log(error))
     }
 

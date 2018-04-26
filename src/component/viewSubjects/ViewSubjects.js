@@ -49,6 +49,7 @@ export default class ViewSubjects extends Component {
 			latestSem: latestSem,
 			currentSem: latestSem
 		})
+		console.log(newProps.subjects)
 	}
 
 	render() {

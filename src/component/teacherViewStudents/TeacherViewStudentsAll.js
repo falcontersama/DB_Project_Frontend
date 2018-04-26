@@ -26,7 +26,7 @@ const ViewStudentTable = styled.div`
 export default class TeacherViewStudentsAll extends Component {
 	constructor(props) {
 		super(props)
-		this.state = { students: MOCK_STUDENTS, selectedStudent: null, subjects: MOCK_SUBJECTS }
+		this.state = { students: MOCK_STUDENTS, selectedStudent: null, subjects: [] }
 		this.selectStudent = this.selectStudent.bind(this)
 	}
 

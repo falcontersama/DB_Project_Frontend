@@ -31,7 +31,7 @@ export default class BottomLeft extends Component {
                             </tr>
                         </thead>
                         <tbody>
-                            {this.props.subject.map((item,i)=>
+                            {this.props.listCourses.map((item,i)=>
                                 <tr key={i} onClick={() => this.props.selectSubject(item.subjectID)}>
 
                                     <td>{item.subjectID}</td>

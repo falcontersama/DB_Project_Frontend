@@ -164,7 +164,7 @@ export default class Slidebar extends Component{
                                 <ContentBox>
                                     <Route exact path="/Main" render={()=><Startpage/>} />
                                     {/* <Route exact path="/Main" render={()=><TeacherViewStudentsAll/>} /> */}
-                                    <Route exact path="/Main/register" render={()=><RegisterStudentAll/>} />
+                                    <Route exact path="/Main/register" render={()=><RegisterStudentAll usernameLog={this.props.usernameLog}/>} />
                                     <Route exact path="/Main/manage" render={()=><ViewSubjectsAll/>} />
                                     <Route exact path="/Main/document" render={()=><RequestDocsAll/>} />
                                 </ContentBox>:

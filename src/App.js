@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import Home from './page/Home'
 import Main from './page/Main'
 
+const API_Login = 'http://localhost:3006/login'
+
 class App extends Component {
 
   constructor(props){
@@ -12,13 +14,14 @@ class App extends Component {
           usernameLog:"5831006021",
           passwordLog:"",
           nameLog:"Jakkaraj",
-          status:"teacher"
+          status:"student"
           
       }
       this.handleLogin = this.handleLogin.bind(this)
   }
 
   handleLogin(user,pass){
+    
     this.setState({usernameLog:user,passwordLog:pass})
   }
 

@@ -7,6 +7,7 @@ import axios from 'axios'
 import {Col} from 'react-bootstrap'
 
 const API_listCourses = 'http://localhost:3006/listCourses'
+const API_studentCourse = 'http://localhost:3006/studentCourse'
 const API_courseDetail = 'http://localhost:3006/courseDetail'
 
 export default class RegisterStudentAll extends Component {
@@ -18,21 +19,31 @@ export default class RegisterStudentAll extends Component {
             name:"",
             gened:"",
             selectedSubject:[],
-            subject:[],
+            listCourses:[],
+            studentCourse:[],
             showSelected:false
         }
-        this.searchSubject = this.searchSubject.bind(this)
+        this.searchlistCourses = this.searchlistCourses.bind(this)
         this.selectSubject = this.selectSubject.bind(this)
         this.handleId = this.handleId.bind(this)
         this.handleName = this.handleName.bind(this)
         this.handleGened = this.handleGened.bind(this)
     }
 
-    searchSubject(){
-        axios.get(API_listCourses, {params: {courseID: this.state.id}})
+    searchlistCourses(){
+        axios.get(API_listCourses, {params: {courseID: this.state.id, courseName: this.state.name }})
             .then((response) => {
-                this.setState({subject:response.data.data})})
+                this.setState({listCourses:response.data.data})
+            })
+            .then((response)=>{
+                axios.get(API_studentCourse, {params: {studentID: this.props.usernameLog}})
+                .then((response) => {
+                    this.setState({studentCourse:response.data.data})
+                })
+                .catch((error) => console.log(error))
+            })
             .catch((error) => console.log(error))
+
     }
 
     handleId(e){
@@ -48,6 +59,7 @@ export default class RegisterStudentAll extends Component {
     }
 
     selectSubject(subj){
+        console.log(subj)
         axios.get(API_courseDetail, {params: {courseID: subj}})
             .then((response) => {
                 if(response.data.data.length > 0){
@@ -67,8 +79,8 @@ export default class RegisterStudentAll extends Component {
         return(
             <div>
                 <Col xs={5}>
-                    <Topleft searchSubject={this.searchSubject} handleId={this.handleId} handleName={this.handleName} handleGened={this.handleGened} />
-                    <BottomLeft subject={this.state.subject} selectSubject={this.selectSubject}/>
+                    <Topleft searchSubject={this.searchlistCourses} handleId={this.handleId} handleName={this.handleName} handleGened={this.handleGened} />
+                    <BottomLeft listCourses={this.state.listCourses} selectSubject={this.selectSubject}/>
                 </Col>
                 <Col xs={5}>
                     {this.state.showSelected == false? 

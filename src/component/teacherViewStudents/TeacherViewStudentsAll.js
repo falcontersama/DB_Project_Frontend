@@ -3,11 +3,12 @@ import { Table, Button } from 'react-bootstrap'
 import styled from 'styled-components'
 import axios from 'axios'
 
-import ViewSubjectsAll from '../viewSubjects/ViewSubjectsAll'
+import ViewSubjects from '../viewSubjects/ViewSubjects'
 
 import { MOCK_STUDENTS } from './MockData.json'
+import { MOCK_SUBJECTS } from '../viewSubjects/MockData.json'
 
-// const API_URL = 'http://localhost:3006/studentCourse'
+const API_URL = 'http://localhost:3006/studentCourse'
 
 const ViewStudentBox = styled.div`
     border:1px solid lightgrey;
@@ -25,13 +26,15 @@ const ViewStudentTable = styled.div`
 export default class TeacherViewStudentsAll extends Component {
 	constructor(props) {
 		super(props)
-		// var username = '5208389731'
-		// var username = this.props.usernameLog
-		// axios.get(API_URL, {params: {studentID: username}})
-		//     .then((response) => this.setState({students: response.data.data}))
-		//     .catch((error) => console.log(error))
-		this.state = { students: MOCK_STUDENTS, selectedStudent: null }
-		console.log(MOCK_STUDENTS)
+		this.state = { students: MOCK_STUDENTS, selectedStudent: null, subjects: [] }
+		this.selectStudent = this.selectStudent.bind(this)
+	}
+
+	selectStudent(student) {
+		this.setState({selectedStudent: student})
+		axios.get(API_URL, {params: {studentID: student.studentID}})
+			.then((response) => this.setState({subjects: response.data.data}))
+			.catch((error) => console.log(error))
 	}
 
 	render() {
@@ -50,9 +53,7 @@ export default class TeacherViewStudentsAll extends Component {
 							<tbody>
 								{this.state.students.map((x, idx) => <tr>
 									<td>{x.studentID}</td>
-									<td><Button bsStyle='link' onClick={() => {
-										this.setState({selectedStudent: x})
-										}}>{x.studentName}</Button></td>
+									<td><Button bsStyle='link' onClick={() => {this.selectStudent(x)}}>{x.studentName}</Button></td>
 								</tr>)}
 							</tbody>
 						</Table>
@@ -60,7 +61,8 @@ export default class TeacherViewStudentsAll extends Component {
 				</ViewStudentBox>
 				{this.state.selectedStudent !== null && 
 					<ViewStudentBox>
-						<ViewSubjectsAll
+						<ViewSubjects
+							subjects={this.state.subjects}
 							nameLog={this.state.selectedStudent.studentID}
 							usernameLog={this.state.selectedStudent.studentName}/>
 					</ViewStudentBox>}

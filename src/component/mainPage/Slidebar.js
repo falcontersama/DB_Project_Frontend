@@ -15,6 +15,7 @@ import TeacherMainAll from '../teacherMain/TeacherMainAll'
 import TeacherCourseville from '../teacherCourseville/TeacherCoursevilleAll'
 import RecordgradeAll from '../recordgrade/RecordgraadeAll'
 import TeacherViewStudentsAll from '../teacherViewStudents/TeacherViewStudentsAll'
+import TeacherAddAssignmentAll from '../teacherAddAssignment/TeacherAddAssignmentAll'
 
 const ContentBox = styled.div`
     padding: 10px 10px 0px 60px;
@@ -162,18 +163,18 @@ export default class Slidebar extends Component{
                         
                             {this.props.status == "student" ?
                                 <ContentBox>
-                                    <Route exact path="/Main" render={()=><Startpage/>} />
-                                    {/* <Route exact path="/Main" render={()=><TeacherViewStudentsAll/>} /> */}
-                                    <Route exact path="/Main/register" render={()=><RegisterStudentAll usernameLog={this.props.usernameLog}/>} />
-                                    <Route exact path="/Main/manage" render={()=><ViewSubjectsAll/>} />
-                                    <Route exact path="/Main/document" render={()=><RequestDocsAll/>} />
+                                    <Route exact path="/Main" render={()=><RecordgradeAll/>} />
+                                    <Route exact path="/Main/register" render={()=><RegisterStudentAll nameLog={this.props.nameLog} usernameLog={this.props.usernameLog}/>} />
+                                    <Route exact path="/Main/manage" render={()=><ViewSubjectsAll nameLog={this.props.nameLog} usernameLog={this.props.usernameLog}/>} />
+                                    <Route exact path="/Main/document" render={()=><RequestDocsAll nameLog={this.props.nameLog} usernameLog={this.props.usernameLog}/>} />
                                 </ContentBox>:
                             this.props.status == "teacher" ? 
                                 <ContentBox>
-                                    <Route exact path="/Main" render={()=><TeacherMainAll/>} />
-                                    <Route exact path="/Main/manageWork" render={()=><TeacherCourseville/>} />
-                                    <Route exact path="/Main/recordGrade" render={()=><RecordgradeAll/>} />
+                                    <Route exact path="/Main" render={()=><RecordgradeAll/>} />
+                                    <Route exact path="/Main/manageWork" render={()=><RegisterStudentAll/>} />
+                                    <Route exact path="/Main/recordGrade" render={()=><ViewSubjectsAll/>} />
                                     <Route exact path="/Main/teacherViewStudent" render={()=><TeacherViewStudentsAll/>} />
+                                    <Route exact path="/Main/teacherAddAssignment" render={()=><TeacherAddAssignmentAll/>} />
                                 </ContentBox>:<div/>
                             }
                     </Col>     

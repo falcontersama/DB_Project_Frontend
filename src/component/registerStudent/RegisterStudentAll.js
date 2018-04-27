@@ -59,7 +59,6 @@ export default class RegisterStudentAll extends Component {
     }
 
     selectSubject(subj){
-        console.log(subj)
         axios.get(API_courseDetail, {params: {courseID: subj}})
             .then((response) => {
                 if(response.data.data.length > 0){
@@ -83,7 +82,7 @@ export default class RegisterStudentAll extends Component {
                     <BottomLeft listCourses={this.state.listCourses} selectSubject={this.selectSubject}/>
                 </Col>
                 <Col xs={5}>
-                    {this.state.showSelected == false? 
+                    {this.state.showSelected ===false? 
                         <div></div>:
                         <Right selectedSubject={this.state.selectedSubject} />
                     }

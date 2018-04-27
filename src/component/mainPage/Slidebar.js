@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import {Navbar,Col, Tab} from 'react-bootstrap'
+import {Navbar,Col} from 'react-bootstrap'
 import styled from 'styled-components'
 import Sidebar from 'react-sidebar'
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import { Route, Link } from 'react-router-dom'
 
 //Page student
 import Startpage from './Startpage'
@@ -117,7 +117,7 @@ export default class Slidebar extends Component{
                 </Navbar.Header>
                 </Navbar>
                 <SideBox>
-                {this.props.status == "student" ? 
+                {this.props.status === "student" ? 
                     <div>
                         <StyledLink to="/Main"><TabBox>หน้าหลัก</TabBox></StyledLink>    
                         <StyledLink to="/Main/register"><TabBox>ลงทะเบียนวิชา/เพิ่ม</TabBox></StyledLink>       
@@ -125,7 +125,7 @@ export default class Slidebar extends Component{
                         <StyledLink to="/Main/document"><TabBox>ขอเอกสาร</TabBox></StyledLink>
                         <StyledLink to="/"><TabBox>ออกจากระบบ</TabBox></StyledLink>
                     </div> : 
-                this.props.status == "teacher" ?
+                this.props.status === "teacher" ?
                     <div>
                         <StyledLink to="/Main"><TabBox>หน้าหลัก</TabBox></StyledLink>    
                         <StyledLink to="/Main/manageWork"><TabBox>จัดการงานตามรายวิชา</TabBox></StyledLink>       
@@ -163,18 +163,18 @@ export default class Slidebar extends Component{
                         
                             {this.props.status == "student" ?
                                 <ContentBox>
-                                    <Route exact path="/Main" render={()=><RecordgradeAll/>} />
+                                    <Route exact path="/Main" render={()=><RecordgradeAll nameLog={this.props.nameLog} usernameLog={this.props.usernameLog}/>} />
                                     <Route exact path="/Main/register" render={()=><RegisterStudentAll nameLog={this.props.nameLog} usernameLog={this.props.usernameLog}/>} />
                                     <Route exact path="/Main/manage" render={()=><ViewSubjectsAll nameLog={this.props.nameLog} usernameLog={this.props.usernameLog}/>} />
                                     <Route exact path="/Main/document" render={()=><RequestDocsAll nameLog={this.props.nameLog} usernameLog={this.props.usernameLog}/>} />
                                 </ContentBox>:
                             this.props.status == "teacher" ? 
                                 <ContentBox>
-                                    <Route exact path="/Main" render={()=><RecordgradeAll/>} />
-                                    <Route exact path="/Main/manageWork" render={()=><RegisterStudentAll/>} />
-                                    <Route exact path="/Main/recordGrade" render={()=><ViewSubjectsAll/>} />
-                                    <Route exact path="/Main/teacherViewStudent" render={()=><TeacherViewStudentsAll/>} />
-                                    <Route exact path="/Main/teacherAddAssignment" render={()=><TeacherAddAssignmentAll/>} />
+                                    <Route exact path="/Main" render={()=><RecordgradeAll nameLog={this.props.nameLog} usernameLog={this.props.usernameLog}/>} />
+                                    <Route exact path="/Main/manageWork" render={()=><RegisterStudentAll nameLog={this.props.nameLog} usernameLog={this.props.usernameLog}/>} />
+                                    <Route exact path="/Main/recordGrade" render={()=><RecordgradeAll nameLog={this.props.nameLog} usernameLog={this.props.usernameLog}/>} />
+                                    <Route exact path="/Main/teacherViewStudent" render={()=><TeacherViewStudentsAll nameLog={this.props.nameLog} usernameLog={this.props.usernameLog}/>} />
+                                    <Route exact path="/Main/teacherAddAssignment" render={()=><TeacherAddAssignmentAll nameLog={this.props.nameLog} usernameLog={this.props.usernameLog}/>} />
                                 </ContentBox>:<div/>
                             }
                     </Col>     

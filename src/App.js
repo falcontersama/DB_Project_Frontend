@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import axios from "axios"
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import Home from './page/Home'
 import Main from './page/Main'
 
@@ -11,10 +10,10 @@ class App extends Component {
   constructor(props){
     super(props)
       this.state = {
-          usernameLog:"5831006021",
+          usernameLog:"0000000101",
           passwordLog:"",
           nameLog:"Jakkaraj",
-          status:"student"
+          status:"teacher"
           
       }
       this.handleLogin = this.handleLogin.bind(this)

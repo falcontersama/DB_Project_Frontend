@@ -3,6 +3,7 @@ import {form, FormGroup, FormControl, Button} from 'react-bootstrap'
 import styled from 'styled-components'
 import Redirect from 'react-router-dom/Redirect'
 import { Link } from 'react-router-dom'
+//import Background from '%public%/img/loginBackground.png';
 
 const LoginBox = styled.div`
     position: absolute;
@@ -16,7 +17,6 @@ const Content = styled.div`
     width: 100vw;
     height: 100vh;
     background-image: url("img/loginBackground.png");
-    background-color: "black";
     background-size: cover;
     opacity: 0.7;
 `;
@@ -49,6 +49,10 @@ export default class Login extends Component{
             this.props.handleLogin(this.state.username,this.state.password)
             this.setState({login:true})
         }
+    }
+    
+    componentWillMount(){
+        
     }
    
     render(){

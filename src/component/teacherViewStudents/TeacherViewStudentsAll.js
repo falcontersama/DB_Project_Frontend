@@ -51,7 +51,7 @@ export default class TeacherViewStudentsAll extends Component {
 								</tr>
 							</thead>
 							<tbody>
-								{this.state.students.map((x, idx) => <tr>
+								{this.state.students.map((x, idx) => <tr key={idx}>
 									<td>{x.studentID}</td>
 									<td><Button bsStyle='link' onClick={() => {this.selectStudent(x)}}>{x.studentName}</Button></td>
 								</tr>)}

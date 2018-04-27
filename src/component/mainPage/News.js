@@ -31,7 +31,7 @@ export default class News extends Component{
 
     render(){
         return(
-            <div>
+            <NewsBox>
                 <ul>
                     {this.state.inform.map((obj,index)=>{
                         return(
@@ -39,7 +39,7 @@ export default class News extends Component{
                         )
                     })}
                 </ul>
-            </div>
+            </NewsBox>
         )
     }
 }

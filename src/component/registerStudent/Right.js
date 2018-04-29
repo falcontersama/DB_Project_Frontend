@@ -14,7 +14,6 @@ const RightBox = styled.div`
 
 export default class Right extends Component{
     render(){
-        console.log(this.props.selectedSubject[0].detail)
         let subject = this.props.selectedSubject[0].detail
         return(
             <RightBox>
@@ -32,7 +31,7 @@ export default class Right extends Component{
                     
                     {  
                         subject.map((item,i)=>
-                        <tr>
+                        <tr key={i}>
                         
                             <td>{item.sec}</td>
                             <td>{item.time.map((x, idx) => <span key={idx}>{x.day} {x.time}<br/></span>)}</td>

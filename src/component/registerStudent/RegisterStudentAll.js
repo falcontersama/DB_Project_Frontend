@@ -62,14 +62,9 @@ export default class RegisterStudentAll extends Component {
         axios.get(API_courseDetail, {params: {courseID: subj}})
             .then((response) => {
                 if(response.data.data.length > 0){
-                    this.setState({selectedSubject:response.data.data })
+                    this.setState({selectedSubject:response.data.data, showSelected:true })
                 }
                 
-            })
-            .then((response) => {
-                if(response.data.data.length > 0){
-                    this.setState({showSelected:true })
-                }
             })
             .catch((error) => console.log(error))
     }

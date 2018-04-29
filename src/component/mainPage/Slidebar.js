@@ -163,7 +163,7 @@ export default class Slidebar extends Component{
                         
                             {this.props.status == "student" ?
                                 <ContentBox>
-                                    <Route exact path="/Main" render={()=><RecordgradeAll nameLog={this.props.nameLog} usernameLog={this.props.usernameLog}/>} />
+                                    <Route exact path="/Main" render={()=><Startpage nameLog={this.props.nameLog} usernameLog={this.props.usernameLog}/>} />
                                     <Route exact path="/Main/register" render={()=><RegisterStudentAll nameLog={this.props.nameLog} usernameLog={this.props.usernameLog}/>} />
                                     <Route exact path="/Main/manage" render={()=><ViewSubjectsAll nameLog={this.props.nameLog} usernameLog={this.props.usernameLog}/>} />
                                     <Route exact path="/Main/document" render={()=><RequestDocsAll nameLog={this.props.nameLog} usernameLog={this.props.usernameLog}/>} />

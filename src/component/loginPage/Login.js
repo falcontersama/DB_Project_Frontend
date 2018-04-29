@@ -33,6 +33,7 @@ export default class Login extends Component{
             username:"",
             password:"",
             login:false,
+            show: false
         }
         this.handleUsername = this.handleUsername.bind(this)
         this.handlePassword = this.handlePassword.bind(this)
@@ -61,8 +62,9 @@ export default class Login extends Component{
             console.log("success")  
             this.props.loginPass(this.state.username, this.state.password)
             this.setState({login:true})
-          }else{
-            this.setState(this.state.username:null,this.state.password:null)
+          }else if(res.data.staus === "fail"){
+            console.log("fail")
+            this.setState({username:"",password:""})
             this.handleShow()
           }
         })
@@ -91,20 +93,21 @@ export default class Login extends Component{
           }
         return(
             <div>
-                
-                <Content />
-
                 <Modal show={this.state.show} onHide={this.handleClose}>
                     <Modal.Header closeButton>
                     <Modal.Title>Error</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                    <h1>Username or password is wrong.</h1>
+                    <h3>Username or password is wrong.</h3>
                     </Modal.Body>
                     <Modal.Footer>
                     <Button onClick={this.handleClose}>Close</Button>
                     </Modal.Footer>
                 </Modal>
+                
+                <Content />
+
+                
                     
                 <LoginBox>
                     

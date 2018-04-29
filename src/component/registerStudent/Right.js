@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {Table} from 'react-bootstrap'
+import {Table, Button, Modal} from 'react-bootstrap'
 import styled from 'styled-components'
 
 const RightBox = styled.div`
@@ -8,16 +8,60 @@ const RightBox = styled.div`
     max-height: 60vh;
     padding: 10px 10px 10px 10px;
     text-align: center;
+    margin-top: 10vh;
     
 `;
 
 
 export default class Right extends Component{
+
+    constructor(props){
+        super(props)
+        this.state = {
+            show:false,
+            subjectID:"",
+            sec:"",
+            usernameLog:"",
+        }
+        this.register = this.register.bind(this)
+        this.handleClose = this.handleClose.bind(this)
+        this.handleShow = this.handleShow.bind(this)
+    }
+
+    register(item){
+
+    }
+
+    handleClose() {
+        this.setState({ show: false });
+      }
+    
+    handleShow(item) {
+        this.setState({ subjectID: this.props.selectedSubject[0].subjectID, sec:item.sec, usernameLog: this.props.usernameLog, show: true });
+    }
+
     render(){
         let subject = this.props.selectedSubject[0].detail
         return(
             <RightBox>
-                รายละเอียดวิชา
+                <Modal show={this.state.show} onHide={this.handleClose}>
+                    <Modal.Header closeButton>
+                    <Modal.Title>Comfirm Register</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <div>
+                            {this.state.subjectID}
+                            {this.state.sec}
+                            {this.state.usernameLog}
+                           
+                        </div>
+                    </Modal.Body>
+                    <Modal.Footer>
+                    <Button onClick={this.handleClose}>Close</Button>
+                    </Modal.Footer>
+                </Modal>
+
+                รายละเอียดวิชา {this.props.selectedSubject[0].subjectID}
                 <Table>
                 <thead>
                     <tr>
@@ -28,10 +72,9 @@ export default class Right extends Component{
                     </tr>
                 </thead>
                 <tbody>
-                    
                     {  
                         subject.map((item,i)=>
-                        <tr key={i}>
+                        <tr key={i} onClick={()=>{this.handleShow(item)}}>
                         
                             <td>{item.sec}</td>
                             <td>{item.time.map((x, idx) => <span key={idx}>{x.day} {x.time}<br/></span>)}</td>
@@ -41,6 +84,8 @@ export default class Right extends Component{
                     )}
                 </tbody>
                 </Table>
+
+                
             </RightBox>
         )
     }

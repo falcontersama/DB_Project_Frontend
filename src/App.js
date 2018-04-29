@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import { BrowserRouter as Router, Route} from 'react-router-dom'
 import Home from './page/Home'
 import Main from './page/Main'
-import axios from 'axios'
-import {Modal, Button } from 'react-bootstrap'
 
 class App extends Component {
 

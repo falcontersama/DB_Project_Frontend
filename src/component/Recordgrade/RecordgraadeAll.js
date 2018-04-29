@@ -44,7 +44,7 @@ export default class Recordgrade extends Component{
     }
 
     componentWillMount(){
-
+        console.log(this.props.usernameLog)
         axios.get(API_teacherCourse, {params: {teacherID: this.props.usernameLog }})
             .then((response) => {
                 this.setState({teacherCourse:response.data.data, selectGrade:parseFloat(4.0)})

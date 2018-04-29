@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import {form, FormGroup, FormControl, Button} from 'react-bootstrap'
+import {form, FormGroup, FormControl, Button, Modal} from 'react-bootstrap'
 import styled from 'styled-components'
 import Redirect from 'react-router-dom/Redirect'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
 //import Background from '%public%/img/loginBackground.png';
 
 const LoginBox = styled.div`
@@ -21,6 +22,9 @@ const Content = styled.div`
     opacity: 0.7;
 `;
 
+const API_Login = 'http://localhost:3006/login'
+
+
 export default class Login extends Component{
    
     constructor(props){
@@ -28,12 +32,14 @@ export default class Login extends Component{
         this.state = {
             username:"",
             password:"",
-            type:"",
             login:false,
         }
         this.handleUsername = this.handleUsername.bind(this)
         this.handlePassword = this.handlePassword.bind(this)
         this.loginProcess = this.loginProcess.bind(this)
+        this.handleLogin = this.handleLogin.bind(this)
+        this.handleShow = this.handleShow.bind(this)
+        this.handleClose = this.handleClose.bind(this)
     }
 
     handleUsername(e){
@@ -44,27 +50,61 @@ export default class Login extends Component{
         this.setState({password:e.target.value})
     }
 
+    handleLogin(){
+        axios.post(API_Login, {
+          ID: this.state.username, 
+          password: this.state.password
+        })
+        .then((res)=>{
+          console.log(res.data)
+          if(res.data.staus === "success"){
+            console.log("success")  
+            this.props.loginPass(this.state.username, this.state.password)
+            this.setState({login:true})
+          }else{
+            this.setState(this.state.username:null,this.state.password:null)
+            this.handleShow()
+          }
+        })
+        .catch((error) => console.log(error))
+        
+      }
+
     loginProcess(){
         if(true){
             this.props.handleLogin(this.state.username,this.state.password)
-            this.setState({login:true})
         }
     }
+
+    handleClose() {
+        this.setState({ show: false });
+      }
     
-    componentWillMount(){
-        
+    handleShow() {
+        this.setState({ show: true });
     }
    
     render(){
         if (this.state.login == true) {
             return (
-                
                 <Redirect to='/Main' />)
           }
         return(
             <div>
                 
                 <Content />
+
+                <Modal show={this.state.show} onHide={this.handleClose}>
+                    <Modal.Header closeButton>
+                    <Modal.Title>Error</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                    <h1>Username or password is wrong.</h1>
+                    </Modal.Body>
+                    <Modal.Footer>
+                    <Button onClick={this.handleClose}>Close</Button>
+                    </Modal.Footer>
+                </Modal>
                     
                 <LoginBox>
                     
@@ -79,14 +119,14 @@ export default class Login extends Component{
                         <br />
                         <div><h3>Password</h3></div>
                         <FormControl
-                            type="text"
+                            type="password"
                             value={this.state.password}
                             onChange={this.handlePassword}
                         />  
                         
                         <FormControl.Feedback />
                         <br />
-                        <Button onClick={this.loginProcess}><Link to="/Main"><h4>Login</h4></Link></Button>
+                        <Button onClick={this.handleLogin}><h4>Login</h4></Button>
                         </FormGroup>
                     </form>
                 </LoginBox>

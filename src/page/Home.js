@@ -9,10 +9,8 @@ export default class Home extends Component{
             <div>
             
                 <Login 
-                    username={this.username}
-                    password={this.password}
-                    handleLogin={this.props.handleLogin} 
-                    
+                    loginPass={this.props.loginPass} 
+                    login={this.props.login}
                     />
                 
             </div>

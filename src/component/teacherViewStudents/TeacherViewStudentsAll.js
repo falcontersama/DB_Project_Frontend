@@ -8,7 +8,8 @@ import ViewSubjects from '../viewSubjects/ViewSubjects'
 import { MOCK_STUDENTS } from './MockData.json'
 import { MOCK_SUBJECTS } from '../viewSubjects/MockData.json'
 
-const API_URL = 'http://localhost:3006/studentCourse'
+const STUDENTS_API_URL = 'http://localhost:3006/allStudents'
+const COURSE_API_URL = 'http://localhost:3006/studentCourse'
 
 const ViewStudentBox = styled.div`
     border:1px solid lightgrey;
@@ -26,14 +27,20 @@ const ViewStudentTable = styled.div`
 export default class TeacherViewStudentsAll extends Component {
 	constructor(props) {
 		super(props)
-		this.state = { students: MOCK_STUDENTS, selectedStudent: null, subjects: [] }
+		this.state = { students: [], selectedStudent: null, subjects: [] }
 		this.selectStudent = this.selectStudent.bind(this)
 	}
 
 	selectStudent(student) {
 		this.setState({selectedStudent: student})
-		axios.get(API_URL, {params: {studentID: student.studentID}})
+		axios.get(COURSE_API_URL, {params: {studentID: student.studentID}})
 			.then((response) => this.setState({subjects: response.data.data}))
+			.catch((error) => console.log(error))
+	}
+
+	componentWillMount() {
+		axios.get(STUDENTS_API_URL, {params: {teacherID: this.props.usernameLog}})
+			.then((response) => this.setState({students: response.data.data}))
 			.catch((error) => console.log(error))
 	}
 

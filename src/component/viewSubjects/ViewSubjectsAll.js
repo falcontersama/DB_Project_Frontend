@@ -57,9 +57,13 @@ export default class ViewSubjectsAll extends Component {
         if(window.confirm("ถอนรายวิชา " + subject.subjectID + " " + subject.subjectName + "?"))
         {
             // window.alert("TODO: Withdraw Subject")
+            console.log('Waiting for withdraw')
             axios.delete(UNREGISTER_API_URL, {params: {courseID: subject.subjectID, studentID: this.props.usernameLog}})
             // axios.delete(UNREGISTER_API_URL, {params: {courseID: '0000000', studentID: this.props.usernameLog}})
-                .then((response) => window.alert("การถอนรายวิชา" + ('success' in response.data.data ? 'สำเร็จ' : 'ล้มเหลว')))
+                .then((response) => {
+                    console.log(response.data)
+                    window.alert("การถอนรายวิชา" + ('success' in response.data ? 'สำเร็จ' : 'ล้มเหลว'))
+                })
                 .catch((error) => console.log(error))
         }
     }

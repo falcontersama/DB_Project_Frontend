@@ -41,8 +41,8 @@ export default class ViewSubjectsAll extends Component {
     }
 
     componentWillMount() {
-        var username = '5208389731'
-        // var username = this.props.usernameLog
+        // var username = '5208389731'
+        var username = this.props.usernameLog
         axios.get(COURSE_API_URL, {params: {studentID: username}})
             .then((response) => this.setState({subjects: response.data.data}))
             .catch((error) => console.log(error))

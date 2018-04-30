@@ -94,7 +94,7 @@ export default class Schedule extends Component{
                     </thead>
                     <tbody>
                         {DAYS.map((x, idx) => <tr>
-                            <th>{x.TH}</th>
+                            <th key={idx}>{x.TH}</th>
                             {makeRow(this.state.data[x.EN])}
                         </tr>)}
                     </tbody>

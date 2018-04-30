@@ -96,8 +96,8 @@ export default class RequestTranscriptAll extends Component {
 						<tbody>
 							{this.state.courses.map(
 							(sem, semidx) => 
-								[<tr><td colSpan={4} style={{textAlign:'center'}}><h4>{parseSemester(sem.sem)}</h4></td></tr>].concat(sem.courses.map(
-									(x, idx) => <tr>
+								[<tr key={semidx}><td colSpan={4} style={{textAlign:'center'}}><h4>{parseSemester(sem.sem)}</h4></td></tr>].concat(sem.courses.map(
+									(x, idx) => <tr key={idx}>
 										<td>{x.subjectID}</td>
 										<td>{x.subjectName}</td>
 										<td>{x.credits}</td>

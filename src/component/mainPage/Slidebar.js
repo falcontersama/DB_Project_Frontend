@@ -11,8 +11,6 @@ import ViewSubjectsAll from '../viewSubjects/ViewSubjectsAll'
 import RequestTranscriptAll from '../requestTranscript/RequestTranscriptAll'
 
 //Page teacher
-import TeacherMainAll from '../teacherMain/TeacherMainAll'
-import TeacherCourseville from '../teacherCourseville/TeacherCoursevilleAll'
 import RecordgradeAll from '../recordgrade/RecordgraadeAll'
 import TeacherViewStudentsAll from '../teacherViewStudents/TeacherViewStudentsAll'
 import TeacherAddAssignmentAll from '../teacherAddAssignment/TeacherAddAssignmentAll'

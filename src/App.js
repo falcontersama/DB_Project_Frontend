@@ -22,12 +22,11 @@ class App extends Component {
   }
 
   loginPass(user,pass,type){
-    console.log(user,pass,type)
     this.setState({usernameLog:user, passwordLog:pass, status:type, login:true})
   }
 
   render() {
-    if(this.login == false){
+    if(this.login === false){
       return(
         <Redirect to='/'/>
       )

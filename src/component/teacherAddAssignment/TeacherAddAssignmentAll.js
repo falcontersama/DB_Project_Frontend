@@ -1,11 +1,6 @@
 import React, { Component } from 'react'
-import styled from 'styled-components'
-import { FormGroup, FormControl, Col, Row, Button } from 'react-bootstrap'
+import { FormGroup, FormControl, Col, Button } from 'react-bootstrap'
 
-// const ViewSubjectBox = styled.div`
-//     border:1px solid lightgrey;
-//     padding:10px;
-// `;
 
 export default class ViewSubjects extends Component {
 	constructor(props) {

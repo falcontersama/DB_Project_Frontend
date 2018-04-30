@@ -36,7 +36,7 @@ export default class RequestDocsAll extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        {this.state.docs.map((obj, idx) => <tr>
+                        {this.state.docs.map((obj, idx) => <tr key={idx}>
                             <td>{obj.code}</td><td>{obj.nameTH}<br/>{obj.nameEN}</td>
                             <td><Button bsStyle='default' onClick={() => this.onPreviewButton(obj)}>ดูตัวอย่าง</Button></td>
                             <td><Button bsStyle='primary' onClick={() => this.onRequestButton(obj)}>ขอเอกสาร</Button></td>

@@ -56,6 +56,11 @@ export default class ViewSubjects extends Component {
 		return (
 			<div>
 				<h1>{this.props.nameLog} {this.props.usernameLog}</h1>
+				<h3>
+					{this.props.payStatus === 'paid'
+						? <span style={{backgroundColor:'limegreen', color:'white'}}>จ่ายแล้ว</span>
+						: <span style={{backgroundColor:'red', color:'white'}}>ยังไม่จ่าย</span>} <span>{this.props.payPrice}</span>
+				</h3>
 				<ViewSubjectBox>
 					<DropdownButton title={this.state.currentSem} id='semesterDropdown'>
 						{this.state.semesters.map((obj, index) => (
@@ -78,7 +83,7 @@ export default class ViewSubjects extends Component {
 									<th>สถานที่</th>
 									<th>อาจารย์ผู้สอน</th>
 									<th>ผลการเรียน</th>
-									{this.props.canWithdraw && <th/>}
+									{this.props.studentView && <th/>}
 								</tr>
 							</thead>
 							<tbody>
@@ -93,7 +98,7 @@ export default class ViewSubjects extends Component {
 											<td>{obj.teacher.map((x, idx) => <span key={idx}>{x}<br /></span>)}</td>
 											<td>{obj.grade}</td>
 											{
-												this.props.canWithdraw &&
+												this.props.studentView &&
 												<td>
 													<Button
 														bsStyle='danger'
@@ -117,5 +122,5 @@ export default class ViewSubjects extends Component {
 }
 
 ViewSubjects.defaultProps = {
-    canWithdraw: false
+	studentView: false
 }

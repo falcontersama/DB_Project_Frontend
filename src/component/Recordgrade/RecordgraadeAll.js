@@ -44,7 +44,6 @@ export default class Recordgrade extends Component{
     }
 
     componentWillMount(){
-        console.log(this.props.usernameLog)
         axios.get(API_teacherCourse, {params: {teacherID: this.props.usernameLog }})
             .then((response) => {
                 this.setState({teacherCourse:response.data.data, selectGrade:parseFloat(4.0)})
@@ -52,7 +51,7 @@ export default class Recordgrade extends Component{
             .then((response) => {
                 axios.get(API_courseAllStudent, {params: {courseID: this.state.teacherCourse[0].courseID, sec:this.state.teacherCourse[0].sec}})
                 .then((response)=>{
-                    this.setState({selectCourse:response.data.data, selectCourseID:this.state.teacherCourse[0].courseID+" sec "+this.state.teacherCourse[0].sec})
+                    this.setState({selectCourse:response.data.data, selectCourseID:this.state.teacherCourse[0].courseID,selectCourseSec:this.state.teacherCourse[0].sec})
                 })
             })
             .then((response)=>{
@@ -62,6 +61,7 @@ export default class Recordgrade extends Component{
     }
 
     changeStateDropDown(item){
+
         this.setState({selectCourse:item, selectCourseSec:item.sec})
     }
 
@@ -83,12 +83,27 @@ export default class Recordgrade extends Component{
     }
 
     putGrade(){
-        console.log(this.state.selectCourseID,this.state.selectCourseSec,this.state.selectStudentID, parseFloat(this.state.selectGrade))
-        axios.put(API_grade, {params : {courseID: this.state.selectCourseID, 
-                                        sec:this.state.selectCourseSec, 
-                                        studentID: this.state.selectStudentID, 
-                                        grade:parseFloat(this.state.selectGrade)}})
-            .catch((error) => console.log(error))
+        //console.log(this.state.selectCourseID,this.state.selectCourseSec,this.state.selectStudentID, parseFloat(this.state.selectGrade))
+        //console.log(this.state.selectCourseSec)
+        console.log(this.state)
+        axios.put(API_grade, {
+            courseID: this.state.selectCourseID, 
+            sec:this.state.selectCourseSec, 
+            studentID: this.state.selectStudentID, 
+            grade:this.state.selectGrade
+        }).then(()=>{
+            this.setState({show:false})
+            console.log("Put grade success") 
+            
+        }).then(()=>{
+
+            axios.get(API_courseAllStudent, {params: {courseID: this.state.teacherCourse[0].courseID, sec:this.state.teacherCourse[0].sec}})
+            .then((response)=>{
+                this.setState({selectCourse:response.data.data, selectCourseID:this.state.teacherCourse[0].courseID,selectCourseSec:this.state.teacherCourse[0].sec})
+            })
+
+        })
+        .catch((error) => console.log(error))
     }
 
     render(){

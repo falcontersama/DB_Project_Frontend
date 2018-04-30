@@ -13,7 +13,7 @@ import RequestDocsAll from '../requestDocs/RequestDocsAll'
 //Page teacher
 import TeacherMainAll from '../teacherMain/TeacherMainAll'
 import TeacherCourseville from '../teacherCourseville/TeacherCoursevilleAll'
-import RecordgradeAll from '../Recordgrade/RecordgraadeAll'
+import RecordgradeAll from '../recordgrade/RecordgraadeAll'
 import TeacherViewStudentsAll from '../teacherViewStudents/TeacherViewStudentsAll'
 import TeacherAddAssignmentAll from '../teacherAddAssignment/TeacherAddAssignmentAll'
 

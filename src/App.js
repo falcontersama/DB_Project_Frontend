@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { BrowserRouter as Router, Route} from 'react-router-dom'
 import Home from './page/Home'
 import Main from './page/Main'
+import Redirect from 'react-router/Redirect';
 
 class App extends Component {
 
@@ -10,7 +11,7 @@ class App extends Component {
       this.state = {
           usernameLog:"",
           passwordLog:"",
-          nameLog:"Jakkaraj",
+          nameLog:"",
           status:"student",
           show: false,
           login: false,
@@ -26,6 +27,11 @@ class App extends Component {
   }
 
   render() {
+    if(this.login == false){
+      return(
+        <Redirect to='/'/>
+      )
+    }
     return (
       <Router>
         <div>

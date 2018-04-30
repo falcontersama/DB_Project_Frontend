@@ -76,7 +76,7 @@ export default class RegisterStudentAll extends Component {
                     <Topleft searchSubject={this.searchlistCourses} handleId={this.handleId} handleName={this.handleName} handleGened={this.handleGened} />
                     <BottomLeft listCourses={this.state.listCourses} selectSubject={this.selectSubject}/>
                 </Col>
-                <Col xs={5}>
+                <Col xs={7}>
                     {this.state.showSelected === false? 
                         <div></div>:
                         <Right selectedSubject={this.state.selectedSubject} usernameLog={this.props.usernameLog}/>

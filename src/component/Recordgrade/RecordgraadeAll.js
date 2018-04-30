@@ -56,13 +56,18 @@ export default class Recordgrade extends Component{
             })
             .then((response)=>{
                 this.setState({loadFirstState:true})
+
             })
             .catch((error) => console.log(error))
     }
 
     changeStateDropDown(item){
-
-        this.setState({selectCourse:item, selectCourseSec:item.sec})
+        axios.get(API_courseAllStudent, {params: {courseID:item.courseID, sec:item.sec}})
+            .then((response)=>{
+                this.setState({ selectCourse:response.data.data, 
+                                selectCourseID:item.courseID,
+                                selectCourseSec:this.state.teacherCourse[0].sec})
+            })
     }
 
     handleClose() {

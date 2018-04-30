@@ -32,6 +32,7 @@ export default class News extends Component{
     render(){
         return(
             <NewsBox>
+                <h3>News feature is not available (Mock data)</h3>
                 <ul>
                     {this.state.inform.map((obj,index)=>{
                         return(

@@ -6,6 +6,7 @@ import { MOCK_SUBJECTS } from './MockData.json'
 
 const COURSE_API_URL = 'http://localhost:3006/studentCourse'
 const PAYMENT_API_URL = 'http://localhost:3006/paymentStatus'
+const UNREGISTER_API_URL = 'http://localhost:3006/unregister'
 
 function getSemester(subject) {
     return subject.year + '/' + subject.semester;
@@ -36,6 +37,7 @@ export default class ViewSubjectsAll extends Component {
                 partTimePrice: 0
             }
         }
+        this.onWithdrawButton = this.onWithdrawButton.bind(this)
     }
 
     componentWillMount() {
@@ -48,12 +50,25 @@ export default class ViewSubjectsAll extends Component {
             .then((response) => this.setState({paymentInfo: response.data.data[0]}))
             // .then((response) => console.log(response))
             .catch((error) => console.log(error))
+        console.log(this.props.usernameLog)
+    }
+
+    onWithdrawButton(subject) {  
+        if(window.confirm("ถอนรายวิชา " + subject.subjectID + " " + subject.subjectName + "?"))
+        {
+            // window.alert("TODO: Withdraw Subject")
+            axios.delete(UNREGISTER_API_URL, {params: {courseID: subject.subjectID, studentID: this.props.usernameLog}})
+            // axios.delete(UNREGISTER_API_URL, {params: {courseID: '0000000', studentID: this.props.usernameLog}})
+                .then((response) => window.alert("การถอนรายวิชา" + ('success' in response.data.data ? 'สำเร็จ' : 'ล้มเหลว')))
+                .catch((error) => console.log(error))
+        }
     }
 
     render() {
         return <ViewSubjects
                 subjects={this.state.subjects}
                 studentView={true}
+                onWithdrawButton={this.onWithdrawButton}
                 nameLog={this.props.nameLog}
                 usernameLog={this.props.usernameLog}
                 payStatus={this.state.paymentInfo.payStatus}

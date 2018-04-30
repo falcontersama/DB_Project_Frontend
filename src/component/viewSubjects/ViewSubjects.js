@@ -19,13 +19,6 @@ function getSemester(subject) {
 	return subject.year + '/' + subject.semester;
 }
 
-function onWithdrawButton(subject) {  
-	if(window.confirm("ถอนรายวิชา " + subject.subjectID + " " + subject.subjectName + "?"))
-	{
-			window.alert("TODO: Withdraw Subject")
-	}
-}
-
 function getNewSemesterInfo(subjects) {
 	var semesters = [...new Set(subjects.map((obj, idx) => getSemester(obj)))].sort((a, b) => (a === b ? 0 : a < b ? 1 : -1))
 	return [semesters, semesters[0]]
@@ -49,7 +42,7 @@ export default class ViewSubjects extends Component {
 			latestSem: latestSem,
 			currentSem: latestSem
 		})
-		console.log(newProps.subjects)
+		// console.log(newProps.subjects)
 	}
 
 	render() {
@@ -103,7 +96,7 @@ export default class ViewSubjects extends Component {
 													<Button
 														bsStyle='danger'
 														bsSize='xsmall'
-														onClick={() => this.onWithdrawButton(obj)}
+														onClick={() => this.props.onWithdrawButton(obj)}
 														disabled={this.state.currentSem !== this.state.latestSem}
 													>
 														{withdrawButtonText}

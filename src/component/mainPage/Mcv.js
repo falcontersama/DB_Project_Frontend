@@ -13,7 +13,7 @@ export default class Mcv extends Component{
     render(){
         return(
             <McvBox>
-                news template
+                <h3>MCV feature is not available</h3>
             </McvBox>
         )
     }

@@ -17,7 +17,8 @@ const LoginBox = styled.div`
 const Content = styled.div`
     width: 100vw;
     height: 100vh;
-    background-image: url("img/loginBackground.png");
+    background-image: url("./img/loginBackground.png");
+    background-color: black;
     background-size: cover;
     opacity: 0.7;
 `;

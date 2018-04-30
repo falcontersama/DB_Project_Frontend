@@ -12,7 +12,7 @@ class App extends Component {
           usernameLog:"",
           passwordLog:"",
           nameLog:"",
-          status:"student",
+          status:"teacher",
           show: false,
           login: false,
           

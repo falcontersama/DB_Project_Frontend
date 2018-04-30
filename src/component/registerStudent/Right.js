@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import axios from 'axios'
 
 const RightBox = styled.div`
-    width: 35vw;
+    width: 50vw;
     height: 60vh;
     max-height: 60vh;
     padding: 10px 10px 10px 10px;

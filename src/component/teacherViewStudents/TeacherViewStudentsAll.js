@@ -67,12 +67,10 @@ export default class TeacherViewStudentsAll extends Component {
 					</ViewStudentTable>
 				</ViewStudentBox>
 				{this.state.selectedStudent !== null && 
-					<ViewStudentBox>
-						<ViewSubjects
-							subjects={this.state.subjects}
-							nameLog={this.state.selectedStudent.studentID}
-							usernameLog={this.state.selectedStudent.studentName}/>
-					</ViewStudentBox>}
+					<ViewSubjects
+						subjects={this.state.subjects}
+						nameLog={this.state.selectedStudent.studentID}
+						usernameLog={this.state.selectedStudent.studentName}/>}
 			</div>
 		)
 	}

@@ -8,7 +8,7 @@ import { Route, Link } from 'react-router-dom'
 import Startpage from './Startpage'
 import RegisterStudentAll from '../registerStudent/RegisterStudentAll'
 import ViewSubjectsAll from '../viewSubjects/ViewSubjectsAll'
-import RequestDocsAll from '../requestDocs/RequestDocsAll'
+import RequestTranscriptAll from '../requestTranscript/RequestTranscriptAll'
 
 //Page teacher
 import TeacherMainAll from '../teacherMain/TeacherMainAll'
@@ -166,7 +166,7 @@ export default class Slidebar extends Component{
                                     <Route exact path="/Main" render={()=><Startpage nameLog={this.props.nameLog} usernameLog={this.props.usernameLog}/>} />
                                     <Route exact path="/Main/register" render={()=><RegisterStudentAll nameLog={this.props.nameLog} usernameLog={this.props.usernameLog}/>} />
                                     <Route exact path="/Main/manage" render={()=><ViewSubjectsAll nameLog={this.props.nameLog} usernameLog={this.props.usernameLog}/>} />
-                                    <Route exact path="/Main/document" render={()=><RequestDocsAll nameLog={this.props.nameLog} usernameLog={this.props.usernameLog}/>} />
+                                    <Route exact path="/Main/document" render={()=><RequestTranscriptAll nameLog={this.props.nameLog} usernameLog={this.props.usernameLog}/>} />
                                 </ContentBox>:
                             this.props.status == "teacher" ? 
                                 <ContentBox>

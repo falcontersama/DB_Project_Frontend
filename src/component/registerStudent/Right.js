@@ -68,7 +68,11 @@ export default class Right extends Component{
                     </Modal.Body>
                 </Modal>
 
-                รายละเอียดวิชา {this.props.selectedSubject[0].subjectID}
+                <h3>รายละเอียดวิชา {this.props.selectedSubject[0].subjectID}</h3>
+                <h3>Pre-requisite : {this.props.selectedSubject[0].requisite.map((x, idx) => {
+                    {x}
+                })}</h3>
+
                 <Table hover>
                 <thead>
                     <tr>

@@ -134,11 +134,6 @@ export default class Slidebar extends Component{
                 }
                 </SideBox>
             </div>;
-
-        var sidebarProps = {
-            sidebar: this.state.sidebarOpen,
-            onSetOpen: this.onSetSidebarOpen
-        };
         
         return(
             <div>
@@ -157,14 +152,14 @@ export default class Slidebar extends Component{
                     </Col>
                     <Col xs={21}>
                         
-                            {this.props.status == "student" ?
+                            {this.props.status === "student" ?
                                 <ContentBox>
                                     <Route exact path="/Main" render={()=><Startpage nameLog={this.props.nameLog} usernameLog={this.props.usernameLog}/>} />
                                     <Route exact path="/Main/register" render={()=><RegisterStudentAll nameLog={this.props.nameLog} usernameLog={this.props.usernameLog}/>} />
                                     <Route exact path="/Main/manage" render={()=><ViewSubjectsAll nameLog={this.props.nameLog} usernameLog={this.props.usernameLog}/>} />
                                     <Route exact path="/Main/document" render={()=><RequestTranscriptAll nameLog={this.props.nameLog} usernameLog={this.props.usernameLog}/>} />
                                 </ContentBox>:
-                            this.props.status == "teacher" ? 
+                            this.props.status === "teacher" ? 
                                 <ContentBox>
                                     <Route exact path="/Main" render={()=><RecordgradeAll nameLog={this.props.nameLog} usernameLog={this.props.usernameLog}/>} />
                                     <Route exact path="/Main/teacherViewStudent" render={()=><TeacherViewStudentsAll nameLog={this.props.nameLog} usernameLog={this.props.usernameLog}/>} />

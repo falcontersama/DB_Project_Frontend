@@ -20,7 +20,7 @@ function makeRow(row) {
         for(j=timePassed; j<row[i].start; j++) {
             s.push(<td/>);
         }
-        s.push(<td colSpan={row[i].dur.toString()}>
+        s.push(<td colSpan={row[i].dur.toString()} style={{textAlign:"center"}}>
             {row[i].courseID} ({row[i].sec})<br/>
             {row[i].courseName}<br/>
             {row[i].buildingID} ({row[i].roomID})

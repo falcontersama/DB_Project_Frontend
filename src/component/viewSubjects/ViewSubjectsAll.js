@@ -27,7 +27,6 @@ export default class ViewSubjectsAll extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            // subjects: MOCK_SUBJECTS
             subjects: [],
             paymentInfo: {
                 payStatus: 'wait',
@@ -41,28 +40,24 @@ export default class ViewSubjectsAll extends Component {
     }
 
     componentWillMount() {
-        // var username = '5208389731'
-        var username = this.props.usernameLog
-        axios.get(COURSE_API_URL, {params: {studentID: username}})
+        axios.get(COURSE_API_URL, {params: {studentID: this.props.usernameLog}})
             .then((response) => this.setState({subjects: response.data.data}))
             .catch((error) => console.log(error))
-        axios.get(PAYMENT_API_URL, {params: {studentID: username}})
+        axios.get(PAYMENT_API_URL, {params: {studentID: this.props.usernameLog}})
             .then((response) => this.setState({paymentInfo: response.data.data[0]}))
-            // .then((response) => console.log(response))
             .catch((error) => console.log(error))
-        console.log(this.props.usernameLog)
     }
 
     onWithdrawButton(subject) {  
         if(window.confirm("ถอนรายวิชา " + subject.subjectID + " " + subject.subjectName + "?"))
         {
-            // window.alert("TODO: Withdraw Subject")
             console.log('Waiting for withdraw')
-            axios.delete(UNREGISTER_API_URL, {params: {courseID: subject.subjectID, studentID: this.props.usernameLog}})
-            // axios.delete(UNREGISTER_API_URL, {params: {courseID: '0000000', studentID: this.props.usernameLog}})
+            axios.delete(UNREGISTER_API_URL, {data: {courseID: subject.subjectID, studentID: this.props.usernameLog}})
                 .then((response) => {
-                    console.log(response.data)
                     window.alert("การถอนรายวิชา" + ('success' in response.data ? 'สำเร็จ' : 'ล้มเหลว'))
+                    axios.get(COURSE_API_URL, {params: {studentID: this.props.usernameLog}})
+                        .then((response) => this.setState({subjects: response.data.data}))
+                        .catch((error) => console.log(error))
                 })
                 .catch((error) => console.log(error))
         }

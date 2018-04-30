@@ -69,7 +69,7 @@ export default class Right extends Component{
                 </Modal>
 
                 รายละเอียดวิชา {this.props.selectedSubject[0].subjectID}
-                <Table>
+                <Table hover>
                 <thead>
                     <tr>
                         <th style={{textAlign:"center"}}><h6>section</h6></th>

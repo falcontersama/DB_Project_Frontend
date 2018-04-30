@@ -128,8 +128,6 @@ export default class Slidebar extends Component{
                 this.props.status === "teacher" ?
                     <div>
                         <StyledLink to="/Main"><TabBox>หน้าหลัก</TabBox></StyledLink>    
-                        <StyledLink to="/Main/manageWork"><TabBox>จัดการงานตามรายวิชา</TabBox></StyledLink>       
-                        <StyledLink to="/Main/recordGrade"><TabBox>บันทึกเกรด</TabBox></StyledLink>
                         <StyledLink to="/Main/teacherViewStudent"><TabBox>ดูนิสิตในสังกัด</TabBox></StyledLink>
                         <StyledLink to="/"><TabBox>ออกจากระบบ</TabBox></StyledLink>
                     </div>:
@@ -171,8 +169,6 @@ export default class Slidebar extends Component{
                             this.props.status == "teacher" ? 
                                 <ContentBox>
                                     <Route exact path="/Main" render={()=><RecordgradeAll nameLog={this.props.nameLog} usernameLog={this.props.usernameLog}/>} />
-                                    <Route exact path="/Main/manageWork" render={()=><RegisterStudentAll nameLog={this.props.nameLog} usernameLog={this.props.usernameLog}/>} />
-                                    <Route exact path="/Main/recordGrade" render={()=><RecordgradeAll nameLog={this.props.nameLog} usernameLog={this.props.usernameLog}/>} />
                                     <Route exact path="/Main/teacherViewStudent" render={()=><TeacherViewStudentsAll nameLog={this.props.nameLog} usernameLog={this.props.usernameLog}/>} />
                                     <Route exact path="/Main/teacherAddAssignment" render={()=><TeacherAddAssignmentAll nameLog={this.props.nameLog} usernameLog={this.props.usernameLog}/>} />
                                 </ContentBox>:<div/>

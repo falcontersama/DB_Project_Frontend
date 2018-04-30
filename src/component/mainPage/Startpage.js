@@ -9,7 +9,7 @@ export default class Startpage extends Component{
         return(
             <div>
                 <div>
-                    <Schedule />
+                    <Schedule usernameLog={this.props.usernameLog}/>
                 </div>
                 <div>
                     <Col sm={5}>

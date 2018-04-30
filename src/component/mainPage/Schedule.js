@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import {Table} from 'react-bootstrap'
-import styled from 'styled-components';
+import styled from 'styled-components'
+import axios from 'axios'
+
+const SCHEDULE_API_URL = 'http://localhost:3006/studentSchedule'
 
 const ScheduleBox = styled.div`
     width:100wh;
@@ -14,11 +17,15 @@ function makeRow(row) {
     var timePassed = 0;
     var i, j;
     for(i = 0; i < row.length; i++) {
-        for(j=timePassed; j<row[i].Start; j++) {
+        for(j=timePassed; j<row[i].start; j++) {
             s.push(<td/>);
         }
-        s.push(<td colSpan={row[i].Duration.toString()}>{row[i].Subject}</td>);
-        timePassed = row[i].Start + row[i].Duration;
+        s.push(<td colSpan={row[i].dur.toString()}>
+            {row[i].courseID} ({row[i].sec})<br/>
+            {row[i].courseName}<br/>
+            {row[i].buildingID} ({row[i].roomID})
+        </td>);
+        timePassed = row[i].start + row[i].dur;
     }
     for(j=timePassed; j<24; j++) {
         s.push(<td/>);
@@ -26,34 +33,53 @@ function makeRow(row) {
     return s;
 }
 
+function parseTime(str) {
+    let a = str.split(':')
+    return parseInt(a[0]*2 + a[1]/30)
+}
+
+const DAYS = [
+    {EN: 'MON', TH: 'จันทร์'},
+    {EN: 'TUE', TH: 'อังคาร'},
+    {EN: 'WED', TH: 'พุธ'},
+    {EN: 'THU', TH: 'พฤหัส'},
+    {EN: 'FRI', TH: 'ศุกร์'}
+]
+
+function processSchedule(subjectList) {
+    var schedule = {}
+    DAYS.forEach(x => schedule[x.EN] = [])
+    subjectList.forEach(element => {
+        var temp = {
+            courseID: element.courseID,
+            courseName: element.courseName,
+            sec: element.sec,
+            buildingID: element.buildingID,
+            roomID: element.roomID,
+            start: parseTime(element.startTime) - 14,
+            dur: parseTime(element.duration)
+        }
+        schedule[element.day].push(temp)
+    })
+    DAYS.forEach(x => schedule[x.EN].sort((a, b) => a.start-b.start))
+    return schedule
+}
+
 export default class Schedule extends Component{
 
     constructor(props){
         super(props)
+        let data = {}
+        DAYS.forEach(x => data[x.EN] = [])
         this.state = {
-            data: {
-                "Monday" : [
-                    {"Start" : 0, "Duration" : 6, "Subject" : "Calculus"},
-                    {"Start" : 12, "Duration" : 6, "Subject" : "Physics"}
-                ],
-                "Tuesday" : [
-                    {"Start" : 2, "Duration" : 4, "Subject" : "Calculus"},
-                    {"Start" : 12, "Duration" : 4, "Subject" : "Physics"}
-                ],
-                "Wednesday" : [
-                    {"Start" : 4, "Duration" : 4, "Subject" : "Calculus"},
-                    {"Start" : 14, "Duration" : 4, "Subject" : "Physics"}
-                ],
-                "Thursday" : [
-                    {"Start" : 1, "Duration" : 3, "Subject" : "Calculus"},
-                    {"Start" : 4, "Duration" : 3, "Subject" : "Physics"}
-                ],
-                "Friday" : [
-                    {"Start" : 2, "Duration" : 4, "Subject" : "Calculus"},
-                    {"Start" : 12, "Duration" : 4, "Subject" : "Physics"}
-                ]
-            }           
+            data: data
         }
+    }
+
+    componentWillMount() {
+        axios.get(SCHEDULE_API_URL, {params: {studentID: this.props.usernameLog}})
+            .then((response) => this.setState({data: processSchedule(response.data.data)}))
+            .catch((error) => console.log(error))
     }
 
     render(){
@@ -63,41 +89,14 @@ export default class Schedule extends Component{
                     <thead>
                         <tr>
                         <th>วัน/เวลา</th>
-                        <th colSpan='2'>7-8</th>
-                        <th colSpan='2'>8-9</th>
-                        <th colSpan='2'>9-10</th>
-                        <th colSpan='2'>10-11</th>
-                        <th colSpan='2'>11-12</th>
-                        <th colSpan='2'>12-13</th>
-                        <th colSpan='2'>13-14</th>
-                        <th colSpan='2'>14-15</th>
-                        <th colSpan='2'>15-16</th>
-                        <th colSpan='2'>16-17</th>
-                        <th colSpan='2'>17-18</th>
-                        <th colSpan='2'>18-19</th>
+                        {Array.from({length: 12}, (x,i) => i+7).map((x, idx) => <th colSpan='2'>{x}-{x+1}</th>)}
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                        <th>จันทร์</th>
-                        {makeRow(this.state.data["Monday"])}
-                        </tr>
-                        <tr>
-                        <th>อังคาร</th>
-                        {makeRow(this.state.data["Tuesday"])}
-                        </tr>
-                        <tr>
-                        <th>พุธ</th>
-                        {makeRow(this.state.data["Wednesday"])}
-                        </tr>
-                        <tr>
-                        <th>พฤหัส</th>
-                        {makeRow(this.state.data["Thursday"])}
-                        </tr>
-                        <tr>
-                        <th>ศุกร์</th>
-                        {makeRow(this.state.data["Friday"])}
-                        </tr>
+                        {DAYS.map((x, idx) => <tr>
+                            <th>{x.TH}</th>
+                            {makeRow(this.state.data[x.EN])}
+                        </tr>)}
                     </tbody>
                 </Table>
             </ScheduleBox>

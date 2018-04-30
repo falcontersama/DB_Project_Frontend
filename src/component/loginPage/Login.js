@@ -57,7 +57,7 @@ export default class Login extends Component{
           password: this.state.password
         })
         .then((res)=>{
-          console.log(res.data)
+          console.log(res)
           if(res.data.staus === "success"){
             console.log("success")  
             this.props.loginPass(this.state.username, this.state.password)

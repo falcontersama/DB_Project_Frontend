@@ -59,11 +59,11 @@ export default class Login extends Component{
         })
         .then((res)=>{
           console.log(res)
-          if(res.data.staus === "success"){
-            console.log("success")  
-            this.props.loginPass(this.state.username, this.state.password)
+          if(res.data.status === "success"){
+            console.log("success")
+            this.props.loginPass(this.state.username, this.state.password, res.data.data[0].type)
             this.setState({login:true})
-          }else if(res.data.staus === "fail"){
+          }else if(res.data.status === "fail"){
             console.log("fail")
             this.setState({username:"",password:""})
             this.handleShow()

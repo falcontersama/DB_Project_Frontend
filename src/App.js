@@ -12,7 +12,7 @@ class App extends Component {
           usernameLog:"",
           passwordLog:"",
           nameLog:"",
-          status:"teacher",
+          status:"",
           show: false,
           login: false,
           
@@ -21,9 +21,9 @@ class App extends Component {
 
   }
 
-  loginPass(user,pass){
-    console.log(user,pass)
-    this.setState({usernameLog:user, passwordLog:pass, login:true})
+  loginPass(user,pass,type){
+    console.log(user,pass,type)
+    this.setState({usernameLog:user, passwordLog:pass, status:type, login:true})
   }
 
   render() {

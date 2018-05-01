@@ -53,7 +53,7 @@ export default class ViewSubjects extends Component {
 				{this.props.studentView && <h3>
 					{this.props.payStatus === 'paid'
 						? <span style={{backgroundColor:'limegreen', color:'white'}}>จ่ายแล้ว</span>
-						: <span style={{backgroundColor:'red', color:'white'}}>ยังไม่จ่าย</span>} <span>{this.props.payPrice}</span>
+						: <span style={{backgroundColor:'red', color:'white'}}>ยังไม่จ่าย</span>} <span>{this.props.payPrice} บาท</span>
 				</h3>}
 				<ViewSubjectBox>
 					<DropdownButton title={this.state.currentSem} id='semesterDropdown'>
